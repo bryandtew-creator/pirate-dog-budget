@@ -1,42 +1,55 @@
-PIRATE DOG BUDGET v1.3
-Galaxy Z Fold / GitHub Pages build
+PIRATE DOG BUDGET v1.4 — CORRECTED STARTUP BUILD
 
-WHAT'S NEW
-- Brighter warm-brown, parchment, gold, teal, blue, red, green, and purple interface.
-- More colorful category buttons and interactive controls.
-- Keeps the approved Pirate Dog Budget intro screen.
-- Keeps the approved "Setting sail..." 8-bit Tucker loading screen.
-- NEW: Tucker now visually leaves the loading screen, moves across the display, shrinks, and lands in the dashboard header Pirate Dog icon.
-- Fold-open dashboard still uses a multi-column layout instead of stretching a phone layout.
-- Cache version updated to v1.3.0.
+THIS VERSION FIXES THE STARTUP SCREENS DIRECTLY.
 
-FILES TO UPLOAD TO THE GITHUB REPOSITORY ROOT
-index.html
-manifest.webmanifest
-service-worker.js
-icon-180.png
-icon-192.png
-icon-512.png
-tucker-pixel.png
-tucker-sprite-sheet.png
-README.txt
+WHAT YOU SHOULD SEE
+1. INTRO:
+   The exact approved-style Pirate Dog Budget poster:
+   - Tucker portrait
+   - PIRATE DOG BUDGET
+   - "Chart your course. Control your treasure."
 
-REPLACING YOUR CURRENT GITHUB VERSION
-1. Unzip Pirate_Dog_Budget_GitHub_v1.3.zip.
-2. Open your existing pirate-dog-budget repository on github.com.
-3. Click Add file > Upload files.
-4. Drag ALL files listed above into the upload area.
-5. GitHub will show the existing files as changed/replaced.
-6. Scroll down to Commit changes.
-7. Use a message like: Pirate Dog Budget v1.3.
-8. Commit directly to the main branch.
-9. Wait a few minutes for GitHub Pages to redeploy.
-10. Open your GitHub Pages site in a Chrome Incognito tab first to confirm the new version.
-11. If the installed PWA still shows the old version, fully close it and reopen it.
-12. If it still remains old, uninstall Pirate Dog Budget from the phone, revisit the Pages URL in Chrome, and choose Install app again.
+2. LOADING:
+   The approved scene with pixel Tucker SITTING beside the treasure chest,
+   ocean and pirate ship behind him.
+   Under the scene:
+   - "Setting sail..."
+   - animated red/orange/gold loading bar
+   - live 0% to 100% number
 
-DO NOT UPLOAD THE ZIP FILE ITSELF AS THE WEBSITE.
-Upload the individual files inside it.
+3. TRANSITION:
+   After loading reaches 100%, Tucker flies/shrinks toward the Pirate Dog
+   icon in the dashboard header and the dashboard is revealed.
 
-PRIVACY
-The app stores transaction history locally in IndexedDB. GitHub Pages hosts the app code/assets but this version does not upload your transaction entries to GitHub.
+4. DASHBOARD:
+   Keeps the brighter v1.3 brown/gold/parchment/colorful interface.
+
+IMPORTANT:
+v1.4 uses NEW asset filenames:
+- intro-approved-v14.jpg
+- setting-sail-scene-v14.jpg
+- tucker-transition-v14.png
+
+This is intentional. It prevents an older browser/PWA cache from silently
+reusing v1.1/v1.2 splash-screen artwork under an old filename.
+
+FILES TO UPLOAD TO THE ROOT OF YOUR EXISTING GITHUB REPOSITORY
+- index.html
+- manifest.webmanifest
+- service-worker.js
+- icon-180.png
+- icon-192.png
+- icon-512.png
+- intro-approved-v14.jpg
+- setting-sail-scene-v14.jpg
+- tucker-transition-v14.png
+- tucker-pixel.png
+- tucker-sprite-sheet.png
+- README.txt
+
+AFTER COMMITTING
+1. Wait for GitHub Pages to redeploy.
+2. Open the Pages URL in a NEW Chrome Incognito window.
+3. You should see the v1.4 intro immediately.
+4. Only after confirming it there, test/reinstall the home-screen PWA.
+5. If the installed PWA is stale, uninstall it and reinstall from the Pages URL.
