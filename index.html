@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=451">
-<link rel="icon" href="./icon-192.png?v=451">
-<link rel="apple-touch-icon" href="./icon-180.png?v=451">
+<link rel="manifest" href="./manifest.webmanifest?v=452">
+<link rel="icon" href="./icon-192.png?v=452">
+<link rel="apple-touch-icon" href="./icon-180.png?v=452">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=451") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=452") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=451") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=452") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -763,7 +763,7 @@ button{touch-action:manipulation}
   margin-bottom:10px;
   background:
     linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.08)),
-    url("./dashboard-hero-open-v45.jpg?v=451") center/cover no-repeat;
+    url("./dashboard-hero-open-v45.jpg?v=452") center/cover no-repeat;
   box-shadow:0 5px 22px rgba(0,0,0,.35),inset 0 0 0 1px rgba(237,171,63,.05)
 }
 .hd43-gear{
@@ -851,7 +851,7 @@ button{touch-action:manipulation}
     min-height:370px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
-      url("./dashboard-hero-cover-v451.jpg?v=451") center top/cover no-repeat
+      url("./dashboard-hero-cover-v451.jpg?v=452") center top/cover no-repeat
   }
   .hd43-grid{
     grid-template-columns:1fr 1fr;
@@ -1024,7 +1024,7 @@ button{touch-action:manipulation}
     border-radius:14px 14px 0 0!important;
     background:
       linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
-      url("./dashboard-hero-cover-v451.jpg?v=451") center top/cover no-repeat!important;
+      url("./dashboard-hero-cover-v451.jpg?v=452") center top/cover no-repeat!important;
   }
   .hd451-cover-scroll{
     display:flex;
@@ -1061,6 +1061,124 @@ button{touch-action:manipulation}
   .hd451-cover-scroll{display:none!important}
 }
 
+
+/* =========================================================
+   V4.5.2 HD MATERIAL UPGRADE
+   2048px text-free gray wood + resolution-independent brass.
+   ========================================================= */
+#dashboard .hd43-card{
+  position:relative!important;
+  isolation:isolate!important;
+  border:0!important;
+  border-radius:12px!important;
+  overflow:hidden!important;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.22)),
+    url("./dashboard-wood-gray-hd-v452.png?v=452") center/768px auto repeat!important;
+  box-shadow:
+    0 0 0 1px #4c2e0d,
+    0 0 0 2px #a46b20,
+    0 0 0 3px #4f310f,
+    inset 0 0 0 1px rgba(246,190,83,.34),
+    inset 0 0 18px rgba(0,0,0,.52),
+    0 5px 14px rgba(0,0,0,.35)!important;
+}
+#dashboard .hd43-card:before{
+  content:""!important;
+  position:absolute!important;
+  inset:5px!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  border:1px solid rgba(205,139,43,.52)!important;
+  border-radius:8px!important;
+  background:none!important;
+  box-shadow:
+    inset 0 0 0 1px rgba(47,28,9,.72),
+    0 0 0 1px rgba(238,176,65,.09)!important;
+}
+#dashboard .hd43-card:after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  border-radius:12px!important;
+  background:
+    radial-gradient(circle at 9px 9px,#f1bd59 0 2px,#7c4c14 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 9px) 9px,#f1bd59 0 2px,#7c4c14 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at 9px calc(100% - 9px),#f1bd59 0 2px,#7c4c14 2.5px 4px,transparent 4.5px),
+    radial-gradient(circle at calc(100% - 9px) calc(100% - 9px),#f1bd59 0 2px,#7c4c14 2.5px 4px,transparent 4.5px)!important;
+}
+#dashboard .hd43-card>*{position:relative;z-index:2}
+
+/* Engraved brass title separators */
+#dashboard .hd43-title{
+  margin:0 8px!important;
+  padding:11px 8px 8px!important;
+  color:#e9bb63!important;
+  border-bottom:1px solid rgba(174,112,31,.42);
+  text-shadow:0 1px 0 #2a1606,0 0 8px rgba(222,157,54,.12)!important;
+}
+
+/* Higher-detail compass ring and spokes; CSS is vector-sharp at any resolution. */
+#dashboard .hd43-ring{
+  position:relative!important;
+  border:7px double #b47a29!important;
+  outline:2px solid #4d2e0c!important;
+  background:
+    radial-gradient(circle at center,#0b0d0d 0 53%,transparent 54%),
+    conic-gradient(#68ad49 0 51%,#75401c 51% 72%,#1c1b18 72% 100%)!important;
+  box-shadow:
+    0 0 0 3px #1e1308,
+    0 0 0 5px #93601d,
+    0 0 0 7px #33200b,
+    inset 0 0 18px rgba(0,0,0,.65),
+    0 5px 18px rgba(0,0,0,.45)!important;
+}
+#dashboard .hd43-ring:after{
+  content:""!important;
+  position:absolute!important;
+  inset:-24px!important;
+  border-radius:50%!important;
+  pointer-events:none!important;
+  background:
+    repeating-conic-gradient(from -1deg,#d49a3c 0deg 1.5deg,transparent 1.5deg 30deg)!important;
+  -webkit-mask:radial-gradient(circle,transparent 0 63%,#000 64% 70%,transparent 71%)!important;
+  mask:radial-gradient(circle,transparent 0 63%,#000 64% 70%,transparent 71%)!important;
+}
+#dashboard .hd43-ring:before{
+  content:""!important;
+  position:absolute!important;
+  inset:-13px!important;
+  border-radius:50%!important;
+  pointer-events:none!important;
+  background:
+    linear-gradient(0deg,transparent 48.5%,#b57a28 49%,#e5b151 50%,#b57a28 51%,transparent 51.5%),
+    linear-gradient(30deg,transparent 48.8%,#a86d22 49.2%,#dba344 50%,#a86d22 50.8%,transparent 51.2%),
+    linear-gradient(60deg,transparent 48.8%,#a86d22 49.2%,#dba344 50%,#a86d22 50.8%,transparent 51.2%),
+    linear-gradient(90deg,transparent 48.5%,#b57a28 49%,#e5b151 50%,#b57a28 51%,transparent 51.5%),
+    linear-gradient(120deg,transparent 48.8%,#a86d22 49.2%,#dba344 50%,#a86d22 50.8%,transparent 51.2%),
+    linear-gradient(150deg,transparent 48.8%,#a86d22 49.2%,#dba344 50%,#a86d22 50.8%,transparent 51.2%)!important;
+  -webkit-mask:radial-gradient(circle,transparent 0 57%,#000 58% 64%,transparent 65%)!important;
+  mask:radial-gradient(circle,transparent 0 57%,#000 58% 64%,transparent 65%)!important;
+}
+
+/* Quick tiles inherit the HD wood instead of flat black boxes. */
+#dashboard .hd43-quick-grid .quick.quick-art{
+  border:1px solid #8e5a1a!important;
+  background:
+    linear-gradient(rgba(8,9,9,.18),rgba(0,0,0,.28)),
+    url("./dashboard-wood-gray-hd-v452.png?v=452") center/520px auto repeat!important;
+  box-shadow:inset 0 0 0 1px rgba(235,174,65,.12)!important;
+}
+
+/* Keep material scale crisp on the large inner display. */
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  #dashboard .hd43-card{
+    background-size:1024px auto!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1068,15 +1186,15 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=451">
-    <img src="./intro-cover-hd-v42.jpg?v=451" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=452">
+    <img src="./intro-cover-hd-v42.jpg?v=452" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=451">
-    <img src="./loading-cover-hd-v42.jpg?v=451" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=452">
+    <img src="./loading-cover-hd-v42.jpg?v=452" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
     
@@ -1109,7 +1227,7 @@ button{touch-action:manipulation}
             <strong id="paymentView">$2,250.00</strong>
           </div>
         </div>
-        <img src="./treasure-chest-v31.jpg?v=451" class="hd43-chest" alt="">
+        <img src="./treasure-chest-v31.jpg?v=452" class="hd43-chest" alt="">
       </section>
 
       <section id="monthOverview" class="hd43-card hd43-month">
@@ -1297,7 +1415,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=451" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=452" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1397,7 +1515,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=451" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=452" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1558,7 +1676,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=451").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=452").catch(function(){});
   }
 }
 init().catch(function(err){
