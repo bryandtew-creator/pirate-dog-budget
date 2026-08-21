@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080807">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pirate Dog">
+<title>Pirate Dog Budget</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<style>
+:root{
+  --bg:#080807;
+  --panel:#11110f;
+  --panel2:#171713;
+  --panel3:#201d17;
+  --parchment:#d8ae69;
+  --parchment2:#edcf94;
+  --ink:#251b10;
+  --gold:#d99a2b;
+  --gold2:#f0bd58;
+  --red:#b42b23;
+  --red2:#d54336;
+  --green:#55b85b;
+  --teal:#2e8d91;
+  --text:#f8f1e6;
+  --muted:#a99e8d;
+  --line:#332d24;
+  --danger:#ef5a50;
+  --shadow:0 10px 28px rgba(0,0,0,.28);
+  --radius:18px;
+  --safe-left:max(16px,env(safe-area-inset-left));
+  --safe-right:max(16px,env(safe-area-inset-right));
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button{touch-action:manipulation}
+.hidden{display:none!important}
+.app-shell{min-height:100dvh;background:
+  radial-gradient(circle at 20% 0%,rgba(217,154,43,.07),transparent 33rem),
+  linear-gradient(180deg,#0a0a08,#070706 65%);
+}
+.screen{display:none;min-height:100dvh;padding:18px var(--safe-right) calc(94px + env(safe-area-inset-bottom)) var(--safe-left)}
+.screen.active{display:block}
+.wrap{width:100%;max-width:1600px;margin:0 auto}
+.topbar{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.logo{width:48px;height:48px;border-radius:14px;border:1px solid #6b4b1d;object-fit:cover}
+.eyebrow{font-size:12px;color:var(--gold2);text-transform:uppercase;letter-spacing:.11em}
+h1{font-size:clamp(23px,2.4vw,34px);margin:0;font-weight:800}
+.sub{color:var(--muted);font-size:14px;margin-top:2px}
+.top-spacer{flex:1}
+.icon-btn{width:46px;height:46px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:20px}
+.dashboard-grid{display:grid;gap:14px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.parchment{background:
+  linear-gradient(rgba(255,255,255,.03),rgba(0,0,0,.04)),
+  var(--parchment);
+  color:var(--ink);border:1px solid #8b642d;border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.parchment:before,.parchment:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(70,45,20,.26)}
+.parchment:before{left:6px;top:6px}.parchment:after{right:7px;bottom:7px}
+.metric-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(80,45,10,.18);border-radius:11px;overflow:hidden}
+.metric{padding:12px;background:rgba(255,245,220,.14);text-align:center}
+.metric span{display:block;font-size:12px;opacity:.72}
+.metric strong{display:block;margin-top:5px;font-size:clamp(18px,3vw,26px)}
+.money-good{color:#155f2d}.money-bad{color:#9d251e}
+.balance-card .balance{font-family:Georgia,serif;font-size:clamp(34px,5vw,52px);font-weight:800;margin:5px 0 12px}
+.card-title{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800;margin-bottom:12px}
+.card-title small{color:var(--gold2);font-weight:600}
+.quick-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.quick{min-height:74px;border:1px solid var(--line);background:#10100e;color:var(--text);border-radius:14px;padding:9px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.quick .emoji{font-size:23px}.quick span:last-child{font-size:12px}
+.progress-list{display:grid;gap:12px}
+.progress-item{display:grid;grid-template-columns:minmax(95px,130px) 1fr auto;align-items:center;gap:10px}
+.progress-label{min-width:0;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{height:10px;border-radius:999px;background:#2c2923;overflow:hidden}
+.fill{height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.progress-val{font-size:12px;color:var(--muted);min-width:52px;text-align:right}
+.debt-ring{display:grid;place-items:center;margin:4px auto 14px;width:min(230px,68vw);aspect-ratio:1;border-radius:50%;background:conic-gradient(var(--red2) 0 51%,var(--teal) 51% 78%,#2c2923 78%);position:relative}
+.debt-ring:after{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--panel)}
+.debt-center{position:relative;z-index:1;text-align:center}
+.debt-center strong{font-size:34px}.debt-center span{display:block;color:var(--muted);font-size:13px}
+.tx-list{display:grid}
+.tx{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.tx:last-child{border-bottom:0}
+.tx-icon{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#282318}
+.tx-name{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tx-meta{color:var(--muted);font-size:12px;margin-top:2px}
+.tx-amt{font-weight:800;text-align:right}
+.reimb-badge{display:inline-block;margin-left:6px;padding:2px 6px;border-radius:999px;font-size:10px;color:#b9f2c2;background:#17361c}
+.add-grid{display:grid;gap:14px}
+.form-card{background:#12110e;border:1px solid var(--line);border-radius:18px;padding:16px}
+.amount-wrap{text-align:center;background:var(--parchment);color:var(--ink);border:1px solid #85602e;border-radius:15px;padding:14px;margin-bottom:14px}
+.amount-input{display:flex;align-items:center;justify-content:center;font-size:42px;font-family:Georgia,serif;font-weight:800}
+.amount-input input{font:inherit;width:min(280px,70vw);background:transparent!important;border:0!important;color:var(--ink)!important;text-align:center;padding:0!important;outline:none}
+.field{margin-top:12px}
+label{display:block;color:var(--muted);font-size:13px;margin-bottom:6px}
+input,select,textarea{width:100%;border:1px solid #3b342a;border-radius:13px;background:#0d0d0b;color:var(--text);padding:13px;min-height:48px}
+textarea{resize:vertical;min-height:90px}
+input[type="date"]{padding:0}
+.date-shell{width:100%;border:1px solid #3b342a;border-radius:13px;background:#0d0d0b;padding:13px}
+.date-shell input{border:0;background:transparent;padding:0;min-height:20px}
+.switch-row{display:flex;align-items:center;gap:11px;margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:14px;background:#0f0f0d}
+.switch-row input{width:22px;height:22px;accent-color:var(--green)}
+.btn{border:0;border-radius:14px;min-height:50px;padding:12px 16px;font-weight:800}
+.btn-primary{background:linear-gradient(180deg,var(--red2),var(--red));color:white}
+.btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#241706}
+.btn-secondary{background:#171713;color:var(--text);border:1px solid var(--line)}
+.btn-danger{background:#351513;color:#ffd8d5;border:1px solid #6a2621}
+.button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.filters{display:grid;grid-template-columns:1fr auto;gap:10px;margin-bottom:12px}
+.search{min-width:0}
+.budget-list{display:grid;gap:9px}
+.budget-item{display:grid;grid-template-columns:40px minmax(100px,160px) 1fr auto;gap:9px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.budget-item:last-child{border-bottom:0}
+.budget-icon{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#282318}
+.budget-name{font-weight:700}
+.budget-meta{font-size:12px;color:var(--muted)}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(8,8,7,.96);backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:7px var(--safe-right) calc(7px + env(safe-area-inset-bottom)) var(--safe-left)}
+.nav-inner{max-width:1600px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.nav-btn{border:0;background:transparent;color:#8f8779;border-radius:12px;padding:7px 4px;min-height:54px;font-size:11px}
+.nav-btn b{display:block;font-size:20px;line-height:1.1;margin-bottom:3px}.nav-btn.active{color:var(--gold2);background:#18150f}
+.fab{width:54px;height:54px;border-radius:50%;background:var(--red2);color:white;border:2px solid #5b1a16;font-size:30px;display:grid;place-items:center;margin:-16px auto 0;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;background:#201d17;border:1px solid #5a4a31;color:var(--text);padding:11px 16px;border-radius:999px;transition:.2s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.install-note{font-size:12px;color:var(--muted);margin-top:10px}
+.intro{position:fixed;inset:0;z-index:100;background:#080807;display:grid;place-items:center;transition:opacity .55s ease,visibility .55s ease}
+.intro.done{opacity:0;visibility:hidden}
+.intro-inner{text-align:center;padding:24px}
+.pixel-dog{width:min(340px,72vw);image-rendering:pixelated;border-radius:22px;filter:saturate(1.05) contrast(1.06);animation:bob 1s steps(2,end) infinite}
+.intro-title{font-family:Georgia,serif;color:var(--gold2);font-weight:900;font-size:clamp(30px,7vw,58px);margin:14px 0 5px;text-shadow:0 3px 0 #492d0f}
+.intro-sub{color:#d8c39d;font-size:15px}
+.loader{width:min(330px,72vw);height:12px;margin:18px auto 0;border:2px solid #4f3820;background:#15110a;border-radius:4px;overflow:hidden}
+.loader>div{height:100%;width:0;background:var(--red2);animation:load 2.1s steps(12,end) forwards}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@keyframes load{to{width:100%}}
+@media(prefers-reduced-motion:reduce){.pixel-dog{animation:none}.loader>div{animation:none;width:100%}}
+/* CLOSED / phone cover display */
+@media(max-width:699px){
+  .screen{padding-top:14px}
+  .quick-grid{grid-template-columns:repeat(4,1fr)}
+  .dashboard-grid{grid-template-columns:1fr}
+}
+/* Typical tablet/fold open portrait */
+@media(min-width:700px){
+  .screen{padding:24px max(24px,env(safe-area-inset-right)) calc(98px + env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
+  .dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .overview-card{grid-column:1/2}
+  .balance-card{grid-column:2/3}
+  .quick-card{grid-column:1/-1}
+  .budget-card{grid-column:1/2}
+  .debt-card{grid-column:2/3}
+  .recent-card{grid-column:1/-1}
+  .quick-grid{grid-template-columns:repeat(8,minmax(0,1fr))}
+  .add-grid{grid-template-columns:minmax(0,1fr) minmax(320px,.8fr)}
+  .wide-history{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:14px}
+}
+/* Z Fold inner screen / landscape / very wide displays */
+@media(min-width:1000px){
+  .dashboard-grid{grid-template-columns:1.12fr .88fr .9fr}
+  .overview-card{grid-column:1/2}
+  .balance-card{grid-column:2/4}
+  .quick-card{grid-column:1/-1}
+  .budget-card{grid-column:1/2}
+  .debt-card{grid-column:2/3}
+  .recent-card{grid-column:3/4}
+  .quick-grid{grid-template-columns:repeat(9,minmax(0,1fr))}
+  .screen{padding-left:max(30px,env(safe-area-inset-left));padding-right:max(30px,env(safe-area-inset-right))}
+}
+/* Optional dual-viewport/fold support when browser exposes viewport segments */
+@media (horizontal-viewport-segments: 2){
+  .wrap{padding-left:env(viewport-segment-left 0 0);padding-right:env(viewport-segment-right 1 0)}
+  .dashboard-grid{column-gap:max(18px,calc(env(viewport-segment-left 1 0) - env(viewport-segment-right 0 0)))}
+}
+</style>
+</head>
+<body>
+<div class="app-shell">
+
+<div id="intro" class="intro">
+  <div class="intro-inner">
+    <img class="pixel-dog" src="./tucker-pixel.png" alt="8-bit Tucker the Pirate Dog wearing a captain hat and an eye patch over his missing eye">
+    <div class="intro-title">Pirate Dog Budget</div>
+    <div class="intro-sub">Charting the course to debt freedom…</div>
+    <div class="loader"><div></div></div>
+  </div>
+</div>
+
+<section id="dashboard" class="screen active">
+  <div class="wrap">
+    <header class="topbar">
+      <img class="logo" src="./icon-192.png" alt="Tucker the Pirate Dog">
+      <div><div class="eyebrow">Pirate Dog Budget</div><h1>Ahoy, Captain!</h1><div class="sub">Chart your course. Control your treasure.</div></div>
+      <div class="top-spacer"></div>
+      <button id="installBtn" class="icon-btn hidden" aria-label="Install app">⬇</button>
+    </header>
+
+    <div class="dashboard-grid">
+      <div class="parchment overview-card">
+        <div class="card-title"><span>This Month Overview</span><small id="monthLabel"></small></div>
+        <div class="metric-row">
+          <div class="metric"><span>Income</span><strong id="incomeMetric" class="money-good">$5,800</strong></div>
+          <div class="metric"><span>Spent</span><strong id="spentMetric" class="money-bad">$0</strong></div>
+          <div class="metric"><span>Left to Spend</span><strong id="leftMetric" class="money-good">$0</strong></div>
+        </div>
+      </div>
+
+      <div class="parchment balance-card">
+        <div class="card-title"><span>Chase Balance</span><small>⚓ Debt target</small></div>
+        <div class="balance" id="balanceMetric">$13,938.07</div>
+        <div style="display:flex;justify-content:space-between;gap:12px"><span>Monthly payment</span><strong id="paymentMetric">$2,250</strong></div>
+      </div>
+
+      <div class="card quick-card">
+        <div class="card-title"><span>Quick categories</span><small>Tap to add</small></div>
+        <div class="quick-grid" id="quickGrid"></div>
+      </div>
+
+      <div class="card budget-card">
+        <div class="card-title"><span>Budget progress</span><small id="budgetRemaining"></small></div>
+        <div id="dashBudget" class="progress-list"></div>
+      </div>
+
+      <div class="card debt-card">
+        <div class="card-title"><span>Debt payoff progress</span><small>Stay the course</small></div>
+        <div class="debt-ring" id="debtRing">
+          <div class="debt-center"><strong id="debtPct">0%</strong><span>Paid off</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px">
+          <div><span class="sub">Paid to date</span><br><strong id="paidToDate">$0</strong></div>
+          <div style="text-align:right"><span class="sub">Est. payoff</span><br><strong id="payoffDate">—</strong></div>
+        </div>
+      </div>
+
+      <div class="card recent-card">
+        <div class="card-title"><span>Recent transactions</span><button class="navlink" data-go="transactions" style="background:none;border:0;color:var(--gold2)">View all</button></div>
+        <div id="recentList" class="tx-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="transactions" class="screen">
+  <div class="wrap">
+    <header class="topbar"><img class="logo" src="./icon-192.png" alt=""><div><div class="eyebrow">Ledger</div><h1>Transactions</h1><div class="sub">Every doubloon accounted for.</div></div></header>
+    <div class="wide-history">
+      <div class="card">
+        <div class="filters"><input id="searchTx" class="search" placeholder="Search transactions"><select id="filterCategory"></select></div>
+        <div id="allTransactions" class="tx-list"></div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title"><span>Data</span><small>On this device</small></div>
+          <div class="button-row"><button id="exportBtn" class="btn btn-gold">Export CSV</button><label class="btn btn-secondary" style="text-align:center;display:grid;place-items:center;cursor:pointer">Import CSV<input id="importFile" type="file" accept=".csv,text/csv" style="display:none"></label></div>
+          <div class="install-note">Export periodically for a backup. Your transaction data stays in this browser unless you export it.</div>
+        </div>
+        <div class="card"><button id="clearBtn" class="btn btn-danger" style="width:100%">Delete all transactions</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="add" class="screen">
+  <div class="wrap">
+    <header class="topbar"><img class="logo" src="./icon-192.png" alt=""><div><div class="eyebrow">New entry</div><h1>Add Transaction</h1><div class="sub">Fast enough to use every time you spend.</div></div></header>
+    <div class="add-grid">
+      <div class="form-card">
+        <div class="amount-wrap">
+          <label for="amount" style="color:#6f4f27">Amount</label>
+          <div class="amount-input">$<input id="amount" type="number" inputmode="decimal" step="0.01" placeholder="0.00"></div>
+        </div>
+        <div class="field"><label for="category">Category</label><select id="category"></select></div>
+        <div class="field"><label for="merchant">Merchant</label><input id="merchant" autocomplete="off" placeholder="Publix, Amazon, QT…"></div>
+        <div class="field"><label for="date">Date</label><div class="date-shell"><input id="date" type="date"></div></div>
+        <div class="field"><label for="notes">Notes (optional)</label><textarea id="notes" placeholder="Add a note…"></textarea></div>
+        <label class="switch-row"><input id="reimbursed" type="checkbox"><span><strong>Parent-paid / reimbursed</strong><br><span class="sub">Does not count toward your personal budget</span></span></label>
+        <button id="saveBtn" class="btn btn-primary" style="width:100%;margin-top:14px">Save Transaction</button>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-title"><span>Quick category</span><small>One-handed entry</small></div>
+          <div class="quick-grid" id="addQuickGrid"></div>
+        </div>
+        <div class="card"><div class="card-title"><span>Recent</span><small>Last 5</small></div><div id="addRecent" class="tx-list"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="budget" class="screen">
+  <div class="wrap">
+    <header class="topbar"><img class="logo" src="./icon-192.png" alt=""><div><div class="eyebrow">Treasure map</div><h1>Budget</h1><div class="sub">Your spending limits by category.</div></div></header>
+    <div class="card"><div id="budgetList" class="budget-list"></div></div>
+    <div class="card">
+      <div class="card-title"><span>Monthly targets</span><small>Edit anytime</small></div>
+      <div class="add-grid">
+        <div>
+          <div class="field"><label for="income">Monthly income</label><input id="income" type="number" step="1"></div>
+          <div class="field"><label for="debtPayment">Monthly Chase payment target</label><input id="debtPayment" type="number" step="1"></div>
+        </div>
+        <div>
+          <div class="field"><label for="debtBalance">Current Chase balance</label><input id="debtBalance" type="number" step="0.01"></div>
+          <div class="field"><label for="startingDebt">Starting debt used for progress</label><input id="startingDebt" type="number" step="0.01"></div>
+        </div>
+      </div>
+      <button id="saveSettings" class="btn btn-gold" style="width:100%;margin-top:14px">Save Budget & Debt Settings</button>
+    </div>
+  </div>
+</section>
+
+<section id="more" class="screen">
+  <div class="wrap">
+    <header class="topbar"><img class="logo" src="./icon-192.png" alt=""><div><div class="eyebrow">Captain's quarters</div><h1>More</h1><div class="sub">App details and privacy.</div></div></header>
+    <div class="card">
+      <div class="card-title"><span>Pirate Dog Budget</span><small>v1.0</small></div>
+      <p style="margin:0;color:var(--muted)">Built as an installable PWA optimized for narrow cover screens, unfolded Galaxy Z Fold inner displays, tablets, and landscape layouts.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>Privacy</span><small>Local-first</small></div>
+      <p style="margin:0;color:var(--muted)">Transactions and settings are stored in IndexedDB on the device/browser where you enter them. This version does not upload your transaction history to GitHub Pages.</p>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>Tucker rule</span><small>🏴‍☠️</small></div>
+      <p style="margin:0;color:var(--muted)">The Pirate Dog artwork uses an eye patch over Tucker's missing eye — the eye on the viewer's left when facing him.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <button class="nav-btn active" data-screen="dashboard"><b>⌂</b>Dashboard</button>
+    <button class="nav-btn" data-screen="transactions"><b>☷</b>Transactions</button>
+    <button class="nav-btn" data-screen="add" aria-label="Add transaction"><span class="fab">+</span></button>
+    <button class="nav-btn" data-screen="budget"><b>▣</b>Budget</button>
+    <button class="nav-btn" data-screen="more"><b>•••</b>More</button>
+  </div>
+</nav>
+<div id="toast" class="toast" aria-live="polite"></div>
+</div>
+
+<script>
+(()=>{
+const CATEGORIES=[
+ ["Groceries",800,"🛒"],["Restaurants",450,"🍴"],["Gas",550,"⛽"],["Amazon",300,"📦"],
+ ["Entertainment",150,"🎮"],["Shopping",150,"🛍️"],["Home / Misc",300,"🏠"],["Utilities / Phone",400,"💡"],
+ ["Insurance",200,"🛡️"],["Other",250,"⚓"],["Medical (Parent-paid)",0,"🩺"],
+ ["Pet / Vet (Parent-paid)",0,"🐾"],["Parent Purchase",0,"🤝"]
+];
+const $=id=>document.getElementById(id);
+const fmt=n=>Number(n||0).toLocaleString("en-US",{style:"currency",currency:"USD"});
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));
+const thisMonth=()=>new Date().toISOString().slice(0,7);
+let db,deferredInstall;
+
+function openDB(){
+ return new Promise((resolve,reject)=>{
+  const r=indexedDB.open("pirate-dog-budget-db",1);
+  r.onupgradeneeded=e=>{
+   const d=e.target.result;
+   if(!d.objectStoreNames.contains("transactions")){
+    const s=d.createObjectStore("transactions",{keyPath:"id",autoIncrement:true});
+    s.createIndex("date","date");
+   }
+   if(!d.objectStoreNames.contains("settings")) d.createObjectStore("settings",{keyPath:"key"});
+  };
+  r.onsuccess=()=>{db=r.result;resolve()};
+  r.onerror=()=>reject(r.error);
+ });
+}
+function getAll(){
+ return new Promise(res=>{const r=db.transaction("transactions").objectStore("transactions").getAll();r.onsuccess=()=>res(r.result||[]);r.onerror=()=>res([])});
+}
+function addTx(x){return new Promise((res,rej)=>{const r=db.transaction("transactions","readwrite").objectStore("transactions").add(x);r.onsuccess=()=>res();r.onerror=()=>rej(r.error)})}
+function delTx(id){return new Promise(res=>{const r=db.transaction("transactions","readwrite").objectStore("transactions").delete(id);r.onsuccess=()=>res()})}
+function clearTx(){return new Promise(res=>{const r=db.transaction("transactions","readwrite").objectStore("transactions").clear();r.onsuccess=()=>res()})}
+function setSetting(key,value){db.transaction("settings","readwrite").objectStore("settings").put({key,value})}
+function getSetting(key,fallback){return new Promise(res=>{const r=db.transaction("settings").objectStore("settings").get(key);r.onsuccess=()=>res(r.result?r.result.value:fallback);r.onerror=()=>res(fallback)})}
+function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1500)}
+function catIcon(c){return (CATEGORIES.find(x=>x[0]===c)||["","", "⚓"])[2]}
+function isAutoReimb(c){return c.includes("Parent-paid")||c==="Parent Purchase"}
+
+async function settings(){
+ return {
+  income:Number(await getSetting("income",5800)),
+  debtPayment:Number(await getSetting("debtPayment",2250)),
+  debtBalance:Number(await getSetting("debtBalance",13938.07)),
+  startingDebt:Number(await getSetting("startingDebt",13938.07))
+ }
+}
+function go(id){
+ document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active",s.id===id));
+ document.querySelectorAll(".nav-btn").forEach(b=>b.classList.toggle("active",b.dataset.screen===id));
+ window.scrollTo({top:0,behavior:"instant"}); render();
+}
+function quickButtons(target){
+ target.innerHTML=CATEGORIES.slice(0,9).map(([n,,i])=>`<button class="quick" data-qcat="${esc(n)}"><span class="emoji">${i}</span><span>${esc(n.replace(" / ","/"))}</span></button>`).join("");
+ target.querySelectorAll("[data-qcat]").forEach(b=>b.addEventListener("click",()=>{$("category").value=b.dataset.qcat;go("add");setTimeout(()=>$("amount").focus(),0)}));
+}
+function txHTML(t,del=false){
+ return `<div class="tx">
+  <div class="tx-icon">${catIcon(t.category)}</div>
+  <div><div class="tx-name">${esc(t.merchant||"Unlabeled")}${t.reimbursed?'<span class="reimb-badge">reimbursed</span>':''}</div>
+  <div class="tx-meta">${esc(t.category)} · ${esc(t.date)}${t.notes?` · ${esc(t.notes)}`:""}</div>${del?`<button data-delete="${t.id}" style="margin-top:4px;background:none;border:0;color:var(--danger);padding:0">Delete</button>`:""}</div>
+  <div class="tx-amt">-${fmt(t.amount)}</div></div>`;
+}
+async function render(){
+ if(!db)return;
+ const s=await settings(), all=(await getAll()).sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id);
+ const m=all.filter(t=>String(t.date).slice(0,7)===thisMonth());
+ const mine=m.filter(t=>!t.reimbursed);
+ const spent=mine.reduce((a,t)=>a+Number(t.amount),0);
+ const spendingTarget=Math.max(0,s.income-s.debtPayment);
+ const left=spendingTarget-spent;
+ $("incomeMetric").textContent=fmt(s.income);
+ $("spentMetric").textContent=fmt(spent);
+ $("leftMetric").textContent=fmt(left);
+ $("leftMetric").className=left>=0?"money-good":"money-bad";
+ $("balanceMetric").textContent=fmt(s.debtBalance);
+ $("paymentMetric").textContent=fmt(s.debtPayment);
+ $("budgetRemaining").textContent=`${fmt(left)} left`;
+ $("monthLabel").textContent=new Date().toLocaleString("en-US",{month:"long",year:"numeric"});
+ $("recentList").innerHTML=all.slice(0,5).map(t=>txHTML(t)).join("")||'<div class="sub">No transactions yet.</div>';
+ $("addRecent").innerHTML=all.slice(0,5).map(t=>txHTML(t)).join("")||'<div class="sub">No transactions yet.</div>';
+
+ const budgeted=CATEGORIES.filter(x=>x[1]>0);
+ $("dashBudget").innerHTML=budgeted.slice(0,5).map(([n,lim])=>{
+  const used=mine.filter(t=>t.category===n).reduce((a,t)=>a+Number(t.amount),0),pct=Math.min(100,used/lim*100);
+  return `<div class="progress-item"><div class="progress-label">${catIcon(n)} ${esc(n)}</div><div class="track"><div class="fill" style="width:${pct}%"></div></div><div class="progress-val">${Math.round(pct)}%</div></div>`;
+ }).join("");
+
+ const paid=Math.max(0,s.startingDebt-s.debtBalance),pct=s.startingDebt>0?Math.max(0,Math.min(100,paid/s.startingDebt*100)):0;
+ $("debtPct").textContent=`${Math.round(pct)}%`;
+ $("paidToDate").textContent=fmt(paid);
+ $("debtRing").style.background=`conic-gradient(var(--red2) 0 ${pct}%, var(--teal) ${pct}% ${Math.min(100,pct+20)}%, #2c2923 ${Math.min(100,pct+20)}%)`;
+ const months=s.debtPayment>0?Math.ceil(s.debtBalance/s.debtPayment):0, d=new Date();d.setMonth(d.getMonth()+months);
+ $("payoffDate").textContent=months?d.toLocaleString("en-US",{month:"short",year:"numeric"}):"Paid off";
+
+ const q=$("searchTx").value.trim().toLowerCase(),f=$("filterCategory").value;
+ let list=all.filter(t=>(!f||t.category===f)&&(!q||`${t.merchant} ${t.category} ${t.notes||""}`.toLowerCase().includes(q)));
+ $("allTransactions").innerHTML=list.map(t=>txHTML(t,true)).join("")||'<div class="sub">No matching transactions.</div>';
+ document.querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",async()=>{await delTx(Number(b.dataset.delete));render()}));
+
+ $("budgetList").innerHTML=budgeted.map(([n,lim,icon])=>{
+  const used=mine.filter(t=>t.category===n).reduce((a,t)=>a+Number(t.amount),0),pct=Math.min(100,used/lim*100);
+  return `<div class="budget-item"><div class="budget-icon">${icon}</div><div><div class="budget-name">${esc(n)}</div><div class="budget-meta">${fmt(used)} / ${fmt(lim)}</div></div><div class="track"><div class="fill" style="width:${pct}%"></div></div><strong>${Math.round(pct)}%</strong></div>`;
+ }).join("");
+ $("income").value=s.income;$("debtPayment").value=s.debtPayment;$("debtBalance").value=s.debtBalance;$("startingDebt").value=s.startingDebt;
+}
+async function save(){
+ const amount=Number($("amount").value);
+ if(!amount||amount<=0){toast("Enter an amount first");return}
+ const category=$("category").value;
+ await addTx({
+  amount:Math.round(amount*100)/100,
+  merchant:$("merchant").value.trim()||"Unlabeled",
+  category,date:$("date").value||new Date().toISOString().slice(0,10),
+  notes:$("notes").value.trim(),
+  reimbursed:$("reimbursed").checked||isAutoReimb(category)
+ });
+ $("amount").value="";$("merchant").value="";$("notes").value="";$("reimbursed").checked=false;
+ toast("Transaction saved");render();setTimeout(()=>$("amount").focus(),0);
+}
+async function exportCSV(){
+ const rows=[["date","merchant","category","amount","reimbursed","notes"],...(await getAll()).map(t=>[t.date,t.merchant,t.category,t.amount,t.reimbursed,t.notes||""])];
+ const csv=rows.map(r=>r.map(v=>`"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="pirate-dog-budget.csv";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);
+}
+function parseLine(line){let out=[],cur="",q=false;for(let i=0;i<line.length;i++){let c=line[i];if(c==='"'&&q&&line[i+1]==='"'){cur+='"';i++}else if(c==='"')q=!q;else if(c===','&&!q){out.push(cur);cur=""}else cur+=c}out.push(cur);return out}
+async function importCSV(e){
+ const f=e.target.files[0];if(!f)return;
+ const lines=(await f.text()).split(/\r?\n/).filter(Boolean);
+ for(const line of lines.slice(1)){const [date,merchant,category,amount,reimbursed,notes]=parseLine(line);if(date&&amount)await addTx({date,merchant,category,amount:Number(amount),reimbursed:String(reimbursed).toLowerCase()==="true",notes:notes||""})}
+ e.target.value="";toast("CSV imported");render();
+}
+async function init(){
+ await openDB();
+ const opt=CATEGORIES.map(x=>new Option(x[0],x[0]));
+ opt.forEach(o=>$("category").add(o));
+ $("filterCategory").add(new Option("All categories",""));
+ CATEGORIES.forEach(x=>$("filterCategory").add(new Option(x[0],x[0])));
+ $("date").value=new Date().toISOString().slice(0,10);
+ quickButtons($("quickGrid")); quickButtons($("addQuickGrid"));
+
+ document.querySelectorAll("[data-screen]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.screen)));
+ document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+ $("saveBtn").addEventListener("click",save);
+ $("amount").addEventListener("keydown",e=>{if(e.key==="Enter")save()});
+ $("searchTx").addEventListener("input",render);$("filterCategory").addEventListener("change",render);
+ $("exportBtn").addEventListener("click",exportCSV);$("importFile").addEventListener("change",importCSV);
+ $("clearBtn").addEventListener("click",async()=>{if(confirm("Delete every transaction? This cannot be undone.")){await clearTx();toast("Transactions deleted");render()}});
+ $("saveSettings").addEventListener("click",()=>{
+  setSetting("income",Number($("income").value||5800));setSetting("debtPayment",Number($("debtPayment").value||2250));
+  setSetting("debtBalance",Number($("debtBalance").value||0));setSetting("startingDebt",Number($("startingDebt").value||0));
+  toast("Settings saved");render();
+ });
+ window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstall=e;$("installBtn").classList.remove("hidden")});
+ $("installBtn").addEventListener("click",async()=>{if(deferredInstall){deferredInstall.prompt();await deferredInstall.userChoice;deferredInstall=null;$("installBtn").classList.add("hidden")}});
+ if("serviceWorker"in navigator)navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+ render();
+ setTimeout(()=>$("intro").classList.add("done"),2250);
+}
+init();
+})();
+</script>
+</body>
+</html>
