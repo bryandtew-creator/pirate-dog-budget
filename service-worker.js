@@ -1,4 +1,4 @@
-const CACHE = "pirate-dog-budget-v1.3.0";
+const CACHE = "pirate-dog-budget-v1.4.0";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,6 +6,9 @@ const ASSETS = [
   "./icon-180.png",
   "./icon-192.png",
   "./icon-512.png",
+  "./intro-approved-v14.jpg",
+  "./setting-sail-scene-v14.jpg",
+  "./tucker-transition-v14.png",
   "./tucker-pixel.png",
   "./tucker-sprite-sheet.png"
 ];
@@ -25,10 +28,10 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request).then(response => {
-      const copy = response.clone();
-      caches.open(CACHE).then(cache => cache.put(event.request, copy)).catch(()=>{});
+    fetch(event.request).then(response => {
+      const copy=response.clone();
+      caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{});
       return response;
-    }).catch(() => caches.match("./index.html")))
+    }).catch(()=>caches.match(event.request).then(r=>r||caches.match("./index.html")))
   );
 });
