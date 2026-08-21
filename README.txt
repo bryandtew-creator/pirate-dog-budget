@@ -1,23 +1,14 @@
-PIRATE DOG BUDGET v1.5 — OCEAN DARK
+PIRATE DOG BUDGET v1.6 — OCEAN DARK
 
-THIS IS THE BLUE/BLACK VERSION BASED ON THE APPROVED CONCEPT.
-
-VISUAL CHANGES
-- Returns the main interface to a black / deep-navy base.
-- Adds an 8-bit ocean-wave background throughout the app.
-- Keeps warm gold borders and parchment where they improve readability.
-- Uses brighter blue, cyan, green, orange, purple, red, and pink interactive controls.
-- Keeps the colorful category buttons from the approved concept.
-- Keeps the Pirate Dog Budget intro screen.
-- Keeps the "Setting sail..." Tucker + treasure chest loading screen.
-- Keeps the Tucker-to-dashboard transition.
-- Keeps Galaxy Z Fold responsive layouts.
-
-NEW v1.5 ASSET FILENAMES
-- intro-ocean-v15.jpg
-- setting-sail-ocean-v15.jpg
-- ocean-waves-v15.png
-- tucker-transition-v15.png
+CHANGES
+- Completely removed the Tucker fly/shrink transition into the dashboard.
+- Setting Sail now ends with a clean fade into the dashboard.
+- Replaced the old loading image with setting-sail-wide-v16.jpg.
+- The new loading scene is 16:10 and preserves Tucker, the dock, treasure chest, and pirate ship.
+- The loading art is displayed with object-fit: contain, so the app does not crop Tucker to fill a square.
+- On a phone it uses almost the entire available screen width.
+- On an unfolded Galaxy Z Fold it scales to a larger cinematic panel.
+- Keeps the Ocean Dark black/navy/8-bit-wave interface.
 
 UPLOAD THESE FILES TO THE ROOT OF YOUR EXISTING GITHUB REPOSITORY
 1. index.html
@@ -27,32 +18,14 @@ UPLOAD THESE FILES TO THE ROOT OF YOUR EXISTING GITHUB REPOSITORY
 5. icon-192.png
 6. icon-512.png
 7. intro-ocean-v15.jpg
-8. setting-sail-ocean-v15.jpg
+8. setting-sail-wide-v16.jpg
 9. ocean-waves-v15.png
-10. tucker-transition-v15.png
-11. tucker-pixel.png
-12. tucker-sprite-sheet.png
-13. README.txt
+10. tucker-pixel.png
+11. tucker-sprite-sheet.png
+12. README.txt
 
-YOU MAY DELETE THESE OLD v1.4-ONLY ASSETS AFTER v1.5 IS WORKING
-- intro-approved-v14.jpg
-- setting-sail-scene-v14.jpg
-- tucker-transition-v14.png
+DELETE THESE OLD FILES FROM GITHUB
+- setting-sail-ocean-v15.jpg
+- tucker-transition-v15.png
 
-DO NOT DELETE
-- index.html
-- manifest.webmanifest
-- service-worker.js
-- the icon files
-- tucker-pixel.png
-- tucker-sprite-sheet.png
-
-AFTER UPLOADING
-1. Commit the changes directly to main.
-2. Wait for GitHub Pages to redeploy.
-3. Open the Pages URL in a new Chrome Incognito window.
-4. Confirm intro -> Setting sail -> Tucker transition -> blue Ocean Dark dashboard.
-5. If the installed PWA still shows the old version, uninstall it and reinstall from the updated Pages URL.
-
-PRIVACY
-Transactions remain stored locally in IndexedDB. This build does not upload your transaction history to GitHub.
+After committing, wait for GitHub Pages to redeploy and test in a NEW Chrome Incognito window first.
