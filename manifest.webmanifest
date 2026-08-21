@@ -2,22 +2,22 @@
   "id": "./",
   "name": "Pirate Dog Budget",
   "short_name": "Pirate Dog",
-  "description": "Pirate Dog Budget v3.1 \u2014 redesigned folded/open dashboard.",
-  "start_url": "./index.html?v=310",
+  "description": "Pirate Dog Budget v4.1 \u2014 corrected folded cover with approved Tucker eye patch and cleaner dashboard art.",
+  "start_url": "./index.html?v=410",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "theme_color": "#020b12",
-  "background_color": "#020b12",
+  "background_color": "#02090f",
+  "theme_color": "#02090f",
   "icons": [
     {
-      "src": "./icon-192.png?v=310",
+      "src": "./icon-192.png?v=410",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./icon-512.png?v=310",
+      "src": "./icon-512.png?v=410",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

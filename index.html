@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=310">
-<link rel="icon" href="./icon-192.png?v=310">
-<link rel="apple-touch-icon" href="./icon-180.png?v=310">
+<link rel="manifest" href="./manifest.webmanifest?v=410">
+<link rel="icon" href="./icon-192.png?v=410">
+<link rel="apple-touch-icon" href="./icon-180.png?v=410">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=310") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=410") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=310") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=410") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -597,6 +597,261 @@ button{touch-action:manipulation}
   }
 }
 
+
+
+/* ===== v3.2 exact category artwork ===== */
+.quick.quick-art{padding:0!important;overflow:hidden;background:#08131d!important;border:0!important}
+.quick.quick-art img{display:block;width:100%;height:100%;object-fit:fill;border-radius:inherit}
+.dashboard-quick .quick.quick-art{aspect-ratio:1.05/1;min-height:0}
+.tx-icon{overflow:hidden}
+.tx-icon img{width:100%;height:100%;display:block;object-fit:cover}
+.pname{display:flex;align-items:center;gap:7px}
+.mini-cat-icon{width:28px;height:28px;border-radius:5px;object-fit:cover;flex:0 0 auto}
+
+/* ===== v3.2 functional loading bar ===== */
+#loading{position:fixed}
+.live-loader{position:absolute;left:0;right:0;bottom:max(22px,env(safe-area-inset-bottom));z-index:3;display:flex;flex-direction:column;align-items:center;gap:9px;padding:0 18px;text-align:center;pointer-events:none}
+#loading::after{content:"";position:absolute;inset:58% 0 0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.30),rgba(0,0,0,.74));pointer-events:none}
+.live-loader-title{position:relative;z-index:4;font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,6vw,46px);font-weight:700;color:#f0d488;text-shadow:0 2px 0 #3a260b,0 0 10px #000}
+.live-loader-track{position:relative;z-index:4;width:min(82vw,760px);height:18px;border:2px solid #e0a52a;border-radius:6px;background:#071017;overflow:hidden;box-shadow:0 0 0 1px #5e3d0c inset}
+.live-loader-bar{width:0%;height:100%;background:linear-gradient(90deg,#c42f23,#e24c2f,#e1851c)}
+.live-loader-pct{position:relative;z-index:4;font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,4vw,30px);color:#f5c337;text-shadow:0 2px 0 #271909}
+@media(max-width:699px), (max-aspect-ratio:.72){
+ .live-loader{bottom:max(18px,env(safe-area-inset-bottom));gap:7px}
+ .live-loader-track{width:84vw;height:16px}
+ .live-loader-title{font-size:clamp(28px,8vw,40px)}
+}
+
+
+/* ===== Pirate Dog Budget v4.0 HD dashboard ===== */
+#dashboard{
+  background:
+    radial-gradient(circle at 50% 0%,rgba(224,132,28,.075),transparent 38rem),
+    linear-gradient(180deg,#03111b 0%,#02090f 100%);
+}
+#dashboard .pixel-wave-divider{display:none!important}
+#dashboard .dashboard-topbar{
+  min-height:90px;margin:0 0 10px;padding:12px 14px;
+  border:1px solid #845716;border-radius:12px;
+  background:linear-gradient(180deg,rgba(10,27,40,.98),rgba(4,16,25,.99));
+  box-shadow:inset 0 0 0 1px rgba(237,175,67,.045),0 4px 18px rgba(0,0,0,.25)
+}
+#dashboard .dashboard-logo{width:62px;height:62px;border:2px solid #b97a20}
+#dashboard .dashboard-topbar h1{
+  font-family:Georgia,"Times New Roman",serif;font-size:30px;color:#f0d3a1
+}
+#dashboard .summary,#dashboard .panel{
+  border:1.5px solid #8a5b16!important;border-radius:10px!important;color:#efd7ab;
+  background:
+    linear-gradient(rgba(41,25,12,.88),rgba(13,10,7,.97)),
+    repeating-linear-gradient(0deg,rgba(67,40,17,.28) 0 2px,rgba(34,20,9,.28) 2px 5px)!important;
+  box-shadow:inset 0 0 0 1px rgba(232,165,62,.055),0 5px 18px rgba(0,0,0,.24)
+}
+#dashboard .summary-title,#dashboard .panel-title{
+  font-family:Georgia,"Times New Roman",serif;color:#e7b65e!important
+}
+#dashboard .summary-big{font-family:Georgia,"Times New Roman",serif;color:#dfa44d!important}
+#dashboard .payment-line span,#dashboard .view-link{color:#e4b253!important}
+#dashboard .payment-history-btn,#dashboard .debt-link-btn{
+  border-color:#926018;background:linear-gradient(#17100a,#0b0907);color:#e7b85d
+}
+#dashboard .treasure-chest{mix-blend-mode:screen;filter:saturate(1.08) contrast(1.04)}
+#dashboard .dashboard-quick{gap:8px}
+#dashboard .quick.quick-art{
+  overflow:hidden;padding:0!important;border:1px solid #77501a!important;
+  border-radius:8px!important;background:#160f09!important
+}
+#dashboard .quick.quick-art img{width:100%;height:100%;display:block;object-fit:cover!important}
+#dashboard .ring{
+  background:conic-gradient(#5da645 0 51%,#6b431a 51% 67%,#2d1b0d 67% 100%)!important;
+  box-shadow:0 0 0 8px #543715 inset,0 0 0 2px #a66f22,0 4px 15px rgba(0,0,0,.35)
+}
+#dashboard .ring::before{background:#0b0a07}
+#dashboard .ring-center strong{
+  font-family:Georgia,"Times New Roman",serif;color:#e8b35c!important
+}
+
+@media(max-width:699px), (max-aspect-ratio:.72){
+  #dashboard .dashboard-topbar{min-height:82px;padding:10px 12px}
+  #dashboard .dashboard-logo{width:56px;height:56px}
+  #dashboard .dashboard-topbar h1{font-size:23px}
+  #dashboard .summary-grid{grid-template-columns:1fr!important;gap:8px!important}
+  #dashboard #monthOverview{display:block!important;order:2}
+  #dashboard #chaseBalance{display:grid!important;order:1}
+  #dashboard .summary{min-height:auto!important}
+  #dashboard .chase-card{grid-template-columns:minmax(0,1fr) 112px!important;padding:13px 14px!important}
+  #dashboard .chase-card .summary-title{font-size:13px!important}
+  #dashboard .chase-card .summary-big{font-size:34px!important;margin:6px 0!important}
+  #dashboard .treasure-chest{max-height:104px!important}
+  #dashboard .payment-line{font-size:12px!important}
+  #dashboard .payment-history-btn{display:none!important}
+  #dashboard #monthOverview{padding:8px 10px!important}
+  #dashboard #monthOverview .summary-title{font-size:12px!important}
+  #dashboard #monthOverview .summary-period{display:none!important}
+  #dashboard #monthOverview .metrics{margin-top:4px!important}
+  #dashboard #monthOverview .metric{padding:7px 3px!important}
+  #dashboard #monthOverview .metric span{font-size:9px!important}
+  #dashboard #monthOverview .metric strong{font-size:15px!important;margin-top:3px!important}
+  #dashboard .dashboard-quick{grid-template-columns:repeat(3,1fr)!important;gap:7px!important}
+  #dashboard .dashboard-quick .quick{min-height:82px!important}
+  #dashboard #dashboardLower{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}
+  #dashboard #dashboardLower .budget-card,
+  #dashboard #dashboardLower .recent-card{display:none!important}
+  #dashboard #dashboardLower .debt-card{display:block!important;min-height:auto!important;padding:10px 12px!important}
+  #dashboard .debt-card .panel-title{justify-content:center;font-size:12px!important;margin-bottom:7px!important}
+  #dashboard .debt-card .debt-panel{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center}
+  #dashboard .debt-card .ring{width:112px!important}
+  #dashboard .debt-card .ring-center strong{font-size:28px!important}
+  #dashboard .debt-card .ring-center span{font-size:10px!important}
+  #dashboard .debt-card .debt-meta-row{display:grid!important;grid-template-columns:1fr!important;gap:7px;font-size:10px!important}
+  #dashboard .debt-card .debt-meta-row span:last-child{text-align:left!important}
+  #dashboard .debt-link-btn{display:none!important}
+}
+
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  #dashboard .summary-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  #dashboard #monthOverview,#dashboard #chaseBalance{display:block!important}
+  #dashboard .dashboard-quick{grid-template-columns:repeat(9,minmax(0,1fr))!important}
+  #dashboard #dashboardLower{
+    display:grid!important;grid-template-columns:1.08fr .96fr 1.06fr!important;gap:10px!important
+  }
+  #dashboard .panel{min-height:315px}
+  #dashboard .ring{width:185px!important}
+  #dashboard .ring-center strong{font-size:44px!important}
+}
+
+
+/* =========================================================
+   v4.1 — CORRECTED FOLDED COVER
+   - Tucker patch on viewer's LEFT
+   - no "Chart Your Course..." scroll/banner
+   - clean ship flags
+   - latest approved folded dashboard look
+   ========================================================= */
+
+@media(max-width:699px), (max-aspect-ratio:.72){
+
+  /* Replace compact app-header look with approved cinematic hero art */
+  #dashboard .dashboard-topbar{
+    position:relative;
+    min-height:330px!important;
+    padding:0!important;
+    margin:0 0 9px!important;
+    overflow:hidden;
+    border:1px solid #845716!important;
+    border-radius:12px!important;
+    background:
+      linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
+      url("./folded-hero-v41.jpg?v=410") center top/cover no-repeat!important;
+  }
+
+  /* Hide the old header contents over the cinematic art */
+  #dashboard .dashboard-topbar > *{
+    visibility:hidden!important;
+  }
+
+  /* Keep a real settings button available */
+  #dashboard .dashboard-topbar::after{
+    content:"⚙";
+    visibility:visible;
+    position:absolute;
+    top:14px;
+    left:14px;
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid #a87320;
+    background:rgba(10,10,8,.78);
+    color:#dfaa4a;
+    font-size:23px;
+    z-index:3;
+    box-shadow:0 2px 10px rgba(0,0,0,.35);
+  }
+
+  /* No tagline/banner on the folded dashboard */
+  #dashboard .hd-tagline,
+  #dashboard .tagline,
+  #dashboard .tagline-scroll,
+  #dashboard .hero-tagline,
+  #dashboard [class*="tagline"]{
+    display:none!important;
+  }
+
+  /* Folded layout: balanced, quick-use, readable */
+  #dashboard .dashboard-shell{
+    gap:8px!important;
+  }
+
+  #dashboard .summary-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+
+  #dashboard #chaseBalance{
+    order:1!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 115px!important;
+    align-items:center!important;
+    padding:12px 14px!important;
+  }
+
+  #dashboard #monthOverview{
+    order:2!important;
+    display:block!important;
+    padding:8px 10px!important;
+  }
+
+  #dashboard #monthOverview .summary-period{
+    display:block!important;
+    font-size:10px!important;
+  }
+
+  #dashboard .dashboard-quick{
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:7px!important;
+    margin-top:0!important;
+  }
+
+  #dashboard .dashboard-quick .quick{
+    min-height:80px!important;
+  }
+
+  /* Keep only the compact debt card from the lower section */
+  #dashboard #dashboardLower{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+
+  #dashboard #dashboardLower .budget-card,
+  #dashboard #dashboardLower .recent-card{
+    display:none!important;
+  }
+
+  #dashboard #dashboardLower .debt-card{
+    display:block!important;
+    min-height:auto!important;
+  }
+
+  #dashboard .debt-card .debt-panel{
+    display:grid!important;
+    grid-template-columns:125px 1fr!important;
+    gap:12px!important;
+    align-items:center!important;
+  }
+
+  #dashboard .debt-card .ring{
+    width:118px!important;
+  }
+
+  #dashboard .debt-link-btn{
+    display:none!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -604,16 +859,21 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-final.jpg?v=310">
-    <img src="./intro-cover-final.jpg?v=310" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-final.jpg?v=410">
+    <img src="./intro-cover-final.jpg?v=410" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-final.jpg?v=310">
-    <img src="./loading-cover-final.jpg?v=310" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-art-v32.jpg?v=410">
+    <img src="./loading-cover-art-v32.jpg?v=410" alt="Setting sail loading screen">
   </picture>
+  <div class="live-loader" aria-live="polite">
+    <div class="live-loader-title">Setting sail…</div>
+    <div class="live-loader-track"><div id="liveLoaderBar" class="live-loader-bar"></div></div>
+    <div id="liveLoaderPct" class="live-loader-pct">0%</div>
+  </div>
 </div>
 
 <main id="app">
@@ -621,7 +881,7 @@ button{touch-action:manipulation}
     <div class="wrap">
       <header class="topbar dashboard-topbar">
         <button class="icon-btn menu-btn" type="button" aria-label="Menu">☰</button>
-        <img class="logo dashboard-logo" src="./icon-192.png?v=310" alt="Pirate Dog">
+        <img class="logo dashboard-logo" src="./icon-192.png?v=410" alt="Pirate Dog">
         <h1>Ahoy, Captain!</h1>
         <div class="grow"></div>
         <button class="icon-btn notify-btn" type="button" aria-label="Notifications">🔔<span class="notify-dot"></span></button>
@@ -653,7 +913,7 @@ button{touch-action:manipulation}
               </div>
               <button class="payment-history-btn" type="button">PAYMENT HISTORY</button>
             </div>
-            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=310" alt="">
+            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=410" alt="">
           </div>
         </div>
 
@@ -772,21 +1032,38 @@ button{touch-action:manipulation}
 <script>
 /* ==========================================================
    STARTUP CONTROLLER
-   This is intentionally first and self-contained.
-   It uses only document.getElementById and setTimeout.
+   Independent of IndexedDB and all app logic.
+   Intro: 3.0s. Loading: 2.7s with real 0–100% progress.
    ========================================================== */
 (function(){
   var intro=document.getElementById("intro");
   var loading=document.getElementById("loading");
+  var bar=document.getElementById("liveLoaderBar");
+  var pct=document.getElementById("liveLoaderPct");
+  var duration=2700;
+  var started=null;
+  var frame=null;
 
-  window.setTimeout(function(){
-    if(intro) intro.classList.add("off");
-    if(loading) loading.classList.remove("off");
+  function animate(now){
+    if(started===null)started=now;
+    var value=Math.min(100,Math.floor(((now-started)/duration)*100));
+    if(bar)bar.style.width=value+"%";
+    if(pct)pct.textContent=value+"%";
+    if(value<100)frame=requestAnimationFrame(animate);
+  }
+
+  setTimeout(function(){
+    if(intro)intro.classList.add("off");
+    if(loading)loading.classList.remove("off");
+    started=null;
+    frame=requestAnimationFrame(animate);
   },3000);
 
-  window.setTimeout(function(){
-    if(intro) intro.classList.add("off");
-    if(loading) loading.classList.add("off");
+  setTimeout(function(){
+    if(bar)bar.style.width="100%";
+    if(pct)pct.textContent="100%";
+    if(loading)loading.classList.add("off");
+    if(frame)cancelAnimationFrame(frame);
   },5700);
 })();
 
@@ -798,16 +1075,30 @@ button{touch-action:manipulation}
 "use strict";
 
 var CATS=[
- ["Groceries",800,"🛒"],["Restaurants",450,"🍴"],["Gas",550,"⛽"],["Amazon",300,"a"],
- ["Entertainment",300,"🎭"],["Shopping",300,"🛍️"],["Home",300,"⌂"],["Other",200,"•••"],["Edit",0,"✎"],
- ["Medical (Parent-paid)",0,"🩺"],["Pet / Vet (Parent-paid)",0,"🐾"],["Parent Purchase",0,"🤝"]
+ ["Groceries",800,"groceries"],["Restaurants",450,"restaurants"],["Gas",550,"gas"],["Amazon",300,"amazon"],
+ ["Entertainment",300,"entertainment"],["Shopping",300,"shopping"],["Home",300,"home"],["Other",200,"other"],["Edit",0,"edit"],
+ ["Medical (Parent-paid)",0,"medical"],["Pet / Vet (Parent-paid)",0,"pet"],["Parent Purchase",0,"parent"]
 ];
 
 function $(id){return document.getElementById(id)}
 function cash(n){return Number(n||0).toLocaleString("en-US",{style:"currency",currency:"USD"})}
 function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(m){return({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m])})}
 function ym(){return new Date().toISOString().slice(0,7)}
-function icon(name){var c=CATS.find(function(x){return x[0]===name});return c?c[2]:"⚓"}
+function assetKey(name){
+  var c=CATS.find(function(x){return x[0]===name});
+  return c?c[2]:"other";
+}
+function iconAsset(name){
+  var k=assetKey(name);
+  var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=410" : "";
+}
+function iconFallback(name){
+  if(name.indexOf("Medical")>-1)return "🩺";
+  if(name.indexOf("Pet")>-1)return "🐾";
+  if(name==="Parent Purchase")return "🤝";
+  return "⚓";
+}
 function reimbursedByDefault(name){return name.indexOf("Parent-paid")>-1||name==="Parent Purchase"}
 function toast(msg){
   var t=$("toast"); if(!t)return;
@@ -897,7 +1188,12 @@ async function settings(){
 }
 function quickMarkup(limit){
   return CATS.slice(0,limit).map(function(c){
-    return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+c[2]+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
+    var k=c[2];
+    var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
+    if(exact.indexOf(k)>-1){
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=410" alt=""></button>';
+    }
+    return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
 }
 function bindQuick(root){
@@ -912,7 +1208,7 @@ function bindQuick(root){
 }
 function txMarkup(t,withDelete){
   return '<div class="tx">'+
-    '<div class="tx-icon">'+icon(t.category)+'</div>'+
+    '<div class="tx-icon">'+(iconAsset(t.category)?'<img src="'+iconAsset(t.category)+'" alt="">':iconFallback(t.category))+'</div>'+
     '<div><div class="tx-name">'+esc(t.merchant||"Unlabeled")+'</div><div class="tx-meta">'+esc(t.category)+' · '+esc(t.date)+(t.reimbursed?' · reimbursed':'')+'</div></div>'+
     '<div class="tx-amt">-'+cash(t.amount)+(withDelete?'<br><button type="button" data-delete="'+t.id+'" style="border:0;background:none;color:#ef756d;font-size:9px">Delete</button>':'')+'</div>'+
   '</div>';
@@ -937,7 +1233,7 @@ async function render(){
   var rows=budgetCats.map(function(c){
     var used=personal.filter(function(t){return t.category===c[0]}).reduce(function(a,t){return a+Number(t.amount)},0);
     var pct=Math.min(100,(used/c[1])*100);
-    return '<div class="prow"><div class="pname">'+icon(c[0])+' '+esc(c[0])+'</div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div><div class="pct">'+Math.round(pct)+'%</div></div>';
+    return '<div class="prow"><div class="pname">'+(iconAsset(c[0])?'<img class="mini-cat-icon" src="'+iconAsset(c[0])+'" alt="">':'')+'<span>'+esc(c[0])+'</span></div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div><div class="pct">'+Math.round(pct)+'%</div></div>';
   }).join("");
   $("budgetProgress").innerHTML=rows;
   $("budgetFull").innerHTML=rows;
@@ -1056,7 +1352,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=310").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=410").catch(function(){});
   }
 }
 init().catch(function(err){
