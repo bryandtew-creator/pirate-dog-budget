@@ -432,31 +432,218 @@ input,select,textarea,.date-shell{
 }
 
 
-/* v1.6 — uncropped cinematic loading scene */
-@media(max-width:699px){
-  .sail-shell{padding:8px 8px 18px}
-  .sail-art-frame{
-    width:calc(100vw - 16px);
-    max-width:none;
-    aspect-ratio:16/10;
-    border-radius:16px;
-  }
-  .sail-art{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-  }
-  .sail-copy{
-    font-size:clamp(25px,7vw,34px);
-    margin:12px 0 8px;
-  }
-  .sail-track{width:min(88vw,540px);height:16px}
-  .sail-percent{margin-top:7px}
+/* v1.7 — immersive loading scenes matched to Fold state */
+.sail-approved{
+  background:#020b12;
+  overflow:hidden;
 }
+.sail-shell{
+  width:100%;
+  height:100dvh;
+  max-width:none;
+  padding:0;
+  display:grid;
+  grid-template-rows:1fr auto auto auto;
+  align-items:end;
+  text-align:center;
+  position:relative;
+}
+.sail-art-frame{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  border-radius:0;
+  margin:0;
+  overflow:hidden;
+  background:#020b12;
+  box-shadow:none;
+}
+.sail-picture{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.sail-art{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  background:#020b12;
+  animation:none;
+}
+.sail-shell:after{
+  content:"";
+  position:absolute;
+  inset:45% 0 0;
+  background:linear-gradient(180deg,transparent,rgba(1,8,14,.28) 32%,rgba(1,8,14,.70) 100%);
+  pointer-events:none;
+}
+.sail-copy,.sail-track,.sail-percent{
+  position:relative;
+  z-index:3;
+}
+.sail-copy{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:800;
+  color:#f7e6bd;
+  text-shadow:0 3px 0 #34220c,0 0 10px rgba(0,0,0,.8);
+  font-size:clamp(30px,7vw,54px);
+  margin:0 0 14px;
+}
+.sail-track{
+  width:min(78vw,760px);
+  height:18px;
+  margin:0 auto;
+  border-radius:8px;
+  background:#06111a;
+  border:3px solid #e2ad3b;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.sail-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#138fd2,#19b8d0,#e5a62f);
+  animation:sailLoad 2.25s steps(20,end) forwards;
+}
+.sail-percent{
+  font-family:Georgia,serif;
+  color:#f4c94d;
+  text-shadow:0 2px 0 #211407;
+  font-size:clamp(22px,5vw,36px);
+  margin:10px 0 max(20px,env(safe-area-inset-bottom));
+}
+
+/* Cover screen: taller composition, Tucker large and fully visible */
+@media(max-width:699px){
+  .sail-art{object-fit:cover;object-position:center top}
+  .sail-copy{font-size:clamp(30px,8vw,42px)}
+  .sail-track{width:84vw;height:16px}
+  .sail-percent{font-size:clamp(23px,6vw,30px)}
+}
+
+/* Open Fold: use wide version and keep the full scene prominent */
 @media(min-width:700px){
-  .sail-art-frame{
-    width:min(90vw,1000px);
-    aspect-ratio:16/10;
+  .sail-art{object-fit:cover;object-position:center center}
+  .sail-copy{font-size:clamp(34px,4vw,54px)}
+  .sail-track{width:min(58vw,800px);height:18px}
+}
+
+/* Folded cover dashboard inspired by approved concept */
+@media(max-width:699px){
+  #dashboard .wrap{max-width:none}
+  #dashboard .topbar{
+    position:relative;
+    margin-bottom:12px;
+    padding:8px 0 14px;
+    border-bottom:1px solid #17445e;
+  }
+  #dashboard .logo{width:50px;height:50px}
+  #dashboard h1{font-size:26px}
+  #dashboard .sub{display:none}
+
+  #dashboard .dashboard-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  #dashboard .overview-card{grid-column:1/2}
+  #dashboard .balance-card{grid-column:2/3}
+  #dashboard .quick-card{grid-column:1/-1}
+  #dashboard .budget-card{grid-column:1/2}
+  #dashboard .debt-card{grid-column:2/3}
+  #dashboard .recent-card{grid-column:1/-1}
+
+  #dashboard .parchment{
+    padding:12px;
+    min-height:170px;
+  }
+  #dashboard .card{padding:12px}
+  #dashboard .metric-row{grid-template-columns:1fr}
+  #dashboard .metric{padding:7px}
+  #dashboard .metric strong{font-size:17px}
+  #dashboard .balance-card .balance{
+    font-size:clamp(28px,7vw,38px);
+    margin:4px 0 8px;
+  }
+
+  #dashboard .quick-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+  }
+  #dashboard .quick{min-height:72px}
+
+  #dashboard .budget-card .progress-item{
+    grid-template-columns:minmax(90px,1fr) 1fr auto;
+    gap:6px;
+  }
+  #dashboard .debt-ring{
+    width:min(180px,42vw);
+    margin:2px auto 10px;
+  }
+  #dashboard .debt-center strong{font-size:30px}
+}
+
+/* Very narrow cover widths: stack summary cards to avoid crowding */
+@media(max-width:430px){
+  #dashboard .dashboard-grid{grid-template-columns:1fr}
+  #dashboard .overview-card,
+  #dashboard .balance-card,
+  #dashboard .quick-card,
+  #dashboard .budget-card,
+  #dashboard .debt-card,
+  #dashboard .recent-card{grid-column:1}
+  #dashboard .metric-row{grid-template-columns:repeat(3,1fr)}
+  #dashboard .metric strong{font-size:15px}
+}
+
+/* ===== Pirate Dog Budget v1.8 responsive intro ===== */
+.intro-approved{
+  background:#020b12;
+  overflow:hidden;
+}
+.intro-poster-wrap{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  padding:0;
+  display:block;
+}
+.intro-picture{
+  display:block;
+  width:100%;
+  height:100%;
+}
+.intro-poster{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  border:0;
+  border-radius:0;
+  box-shadow:none;
+  object-fit:cover;
+  object-position:center center;
+}
+
+/* Folded cover screen: use the dedicated tall composition */
+@media(max-width:699px){
+  .intro-poster{
+    object-fit:cover;
+    object-position:center center;
+  }
+}
+
+/* Open inner display: use dedicated wide composition */
+@media(min-width:700px){
+  .intro-poster{
+    object-fit:cover;
+    object-position:center center;
   }
 }
 
@@ -467,16 +654,22 @@ input,select,textarea,.date-shell{
 
 <div id="introV14" class="startup-stage intro-approved">
   <div class="intro-poster-wrap">
-    <img class="intro-poster" src="./intro-ocean-v15.jpg"
-         alt="Pirate Dog Budget. Chart your course. Control your treasure. Tucker wearing a pirate captain hat and eye patch.">
+    <picture class="intro-picture">
+      <source media="(min-width: 700px)" srcset="./intro-open-v18.jpg">
+      <img class="intro-poster" src="./intro-cover-v18.jpg"
+           alt="Pirate Dog Budget. Tucker the Pirate Dog over an 8-bit ocean scene with the words Chart your course. Control your treasure.">
+    </picture>
   </div>
 </div>
 
 <div id="settingSailV14" class="startup-stage sail-approved stage-hidden">
   <div class="sail-shell">
     <div class="sail-art-frame">
-      <img id="sailScene" class="sail-art" src="./setting-sail-wide-v16.jpg"
-           alt="Pixel-art Tucker the Pirate Dog sitting on a dock beside a treasure chest with a pirate ship behind him.">
+      <picture class="sail-picture">
+      <source media="(min-width: 700px)" srcset="./setting-sail-open-v17.jpg">
+      <img id="sailScene" class="sail-art" src="./setting-sail-cover-v17.jpg"
+           alt="Pixel-art Tucker the Pirate Dog sitting fully visible on a dock beside a treasure chest, with ocean, pirate ship, moon and island behind him.">
+    </picture>
     </div>
     <div class="sail-copy">Setting sail…</div>
     <div class="sail-track"><div class="sail-fill"></div></div>
@@ -795,12 +988,13 @@ async function init(){
  if("serviceWorker"in navigator)navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
  render();
  
- // Pirate Dog Budget v1.6 Ocean Dark startup:
- // Intro -> full-width Setting Sail scene -> clean fade into dashboard.
+ // Pirate Dog Budget v1.8 startup:
+ // Responsive intro for exactly 3 seconds -> Setting Sail -> clean fade to dashboard.
  const introV14=$("introV14");
  const settingSailV14=$("settingSailV14");
  const sailPercent=$("sailPercent");
 
+ // Intro stays visible for exactly 3 seconds.
  setTimeout(()=>{
    introV14.classList.add("stage-hidden");
    settingSailV14.classList.remove("stage-hidden");
@@ -811,13 +1005,13 @@ async function init(){
      sailPercent.textContent=p+"%";
      if(p>=100)clearInterval(timer);
    },90);
- },2200);
+ },3000);
 
- // No Tucker shrinking/flying animation in v1.6.
- // The loading screen simply fades away once loading reaches 100%.
+ // Loading screen remains visible long enough to complete the bar,
+ // then fades directly into the dashboard.
  setTimeout(()=>{
    settingSailV14.classList.add("stage-hidden");
- },4900);
+ },5700);
 
 }
 init();

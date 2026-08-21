@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Pirate Dog Budget",
   "short_name": "Pirate Dog",
-  "description": "Pirate Dog Budget Ocean Dark v1.6 \u2014 cinematic uncropped loading scene.",
+  "description": "Pirate Dog Budget v1.8 \u2014 responsive Fold intro, 3-second automatic startup, Ocean Dark.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
