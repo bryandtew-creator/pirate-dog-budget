@@ -1,43 +1,42 @@
-PIRATE DOG BUDGET — GALAXY Z FOLD INSTALL
+PIRATE DOG BUDGET v1.3
+Galaxy Z Fold / GitHub Pages build
 
-This build is responsive and optimized for:
-- narrow cover-screen use
-- unfolded Galaxy Z Fold inner displays
-- portrait and landscape orientations
-- large tablet-style layouts
-- browser viewport-segment/fold support where available
+WHAT'S NEW
+- Brighter warm-brown, parchment, gold, teal, blue, red, green, and purple interface.
+- More colorful category buttons and interactive controls.
+- Keeps the approved Pirate Dog Budget intro screen.
+- Keeps the approved "Setting sail..." 8-bit Tucker loading screen.
+- NEW: Tucker now visually leaves the loading screen, moves across the display, shrinks, and lands in the dashboard header Pirate Dog icon.
+- Fold-open dashboard still uses a multi-column layout instead of stretching a phone layout.
+- Cache version updated to v1.3.0.
 
-INSTALL ON GITHUB PAGES
-1. Create a new GitHub repository.
-2. Upload ALL files from this ZIP into the repository root.
-3. GitHub > repository Settings > Pages.
-4. Under Build and deployment choose "Deploy from a branch".
-5. Select main / (root), then Save.
-6. Wait for the HTTPS Pages URL.
-7. Open that URL in Chrome on the Galaxy Z Fold.
-8. Chrome menu > Install app / Add to Home screen.
+FILES TO UPLOAD TO THE GITHUB REPOSITORY ROOT
+index.html
+manifest.webmanifest
+service-worker.js
+icon-180.png
+icon-192.png
+icon-512.png
+tucker-pixel.png
+tucker-sprite-sheet.png
+README.txt
 
-IMPORTANT IF REPLACING AN OLD VERSION
-- Upload every file from this package.
-- If the old ClearSpend app is installed, uninstall it first.
-- In Chrome, revisit the GitHub Pages URL and install Pirate Dog Budget.
-- If GitHub Pages still shows the old app, refresh once or clear that site's cached data.
+REPLACING YOUR CURRENT GITHUB VERSION
+1. Unzip Pirate_Dog_Budget_GitHub_v1.3.zip.
+2. Open your existing pirate-dog-budget repository on github.com.
+3. Click Add file > Upload files.
+4. Drag ALL files listed above into the upload area.
+5. GitHub will show the existing files as changed/replaced.
+6. Scroll down to Commit changes.
+7. Use a message like: Pirate Dog Budget v1.3.
+8. Commit directly to the main branch.
+9. Wait a few minutes for GitHub Pages to redeploy.
+10. Open your GitHub Pages site in a Chrome Incognito tab first to confirm the new version.
+11. If the installed PWA still shows the old version, fully close it and reopen it.
+12. If it still remains old, uninstall Pirate Dog Budget from the phone, revisit the Pages URL in Chrome, and choose Install app again.
 
-DATA & PRIVACY
-- Transactions are stored locally using IndexedDB.
-- GitHub Pages hosts only the app files; it does not receive transaction entries from this app.
-- Use Export CSV regularly as a backup.
-- Browser/site data deletion can remove locally stored transactions.
+DO NOT UPLOAD THE ZIP FILE ITSELF AS THE WEBSITE.
+Upload the individual files inside it.
 
-FOLD-SPECIFIC BEHAVIOR
-- Cover display: one-column phone layout.
-- Inner display: two-column layouts beginning around 700 CSS px.
-- Wide unfolded/landscape display: three-column dashboard beginning around 1000 CSS px.
-- The layout uses safe-area environment variables and optional CSS viewport-segment support.
-- No fixed-width outer app container restricts the unfolded display; it expands up to 1600px.
-
-
-V1.1 ART UPDATE
-- Replaced the old pixel intro image with the newly approved Tucker pirate pixel artwork.
-- tucker-pixel.png is the intro portrait.
-- tucker-sprite-sheet.png contains the full approved Pirate Dog sprite sheet for future animation work.
+PRIVACY
+The app stores transaction history locally in IndexedDB. GitHub Pages hosts the app code/assets but this version does not upload your transaction entries to GitHub.

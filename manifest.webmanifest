@@ -2,13 +2,13 @@
   "id": "./",
   "name": "Pirate Dog Budget",
   "short_name": "Pirate Dog",
-  "description": "A pirate-themed personal budget and debt tracker starring Tucker the Pirate Dog.",
+  "description": "Chart your course. Control your treasure. A bright pirate-themed budget tracker starring Tucker.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#080807",
-  "theme_color": "#080807",
+  "background_color": "#120f0a",
+  "theme_color": "#120f0a",
   "categories": [
     "finance",
     "productivity"

@@ -1,4 +1,4 @@
-const CACHE = "pirate-dog-budget-v1.1.0";
+const CACHE = "pirate-dog-budget-v1.3.0";
 const ASSETS = [
   "./",
   "./index.html",
