@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=410">
-<link rel="icon" href="./icon-192.png?v=410">
-<link rel="apple-touch-icon" href="./icon-180.png?v=410">
+<link rel="manifest" href="./manifest.webmanifest?v=420">
+<link rel="icon" href="./icon-192.png?v=420">
+<link rel="apple-touch-icon" href="./icon-180.png?v=420">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=410") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=420") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=410") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=420") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -742,7 +742,7 @@ button{touch-action:manipulation}
     border-radius:12px!important;
     background:
       linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
-      url("./folded-hero-v41.jpg?v=410") center top/cover no-repeat!important;
+      url("./folded-hero-v41.jpg?v=420") center top/cover no-repeat!important;
   }
 
   /* Hide the old header contents over the cinematic art */
@@ -852,6 +852,29 @@ button{touch-action:manipulation}
   }
 }
 
+
+/* ===== v4.2 REAL HD STARTUP ASSETS ===== */
+.splash img{
+  width:100%;
+  height:100%;
+  object-fit:cover!important;
+  object-position:center center!important;
+}
+.live-loader{
+  bottom:max(26px,env(safe-area-inset-bottom))!important;
+}
+.live-loader-track{
+  width:min(82vw,820px)!important;
+}
+@media(max-width:699px), (max-aspect-ratio:.72){
+  .live-loader{
+    bottom:max(24px,env(safe-area-inset-bottom))!important;
+  }
+  .live-loader-track{
+    width:84vw!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -859,18 +882,18 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-final.jpg?v=410">
-    <img src="./intro-cover-final.jpg?v=410" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=420">
+    <img src="./intro-cover-hd-v42.jpg?v=420" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-art-v32.jpg?v=410">
-    <img src="./loading-cover-art-v32.jpg?v=410" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=420">
+    <img src="./loading-cover-hd-v42.jpg?v=420" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
-    <div class="live-loader-title">Setting sail…</div>
+    
     <div class="live-loader-track"><div id="liveLoaderBar" class="live-loader-bar"></div></div>
     <div id="liveLoaderPct" class="live-loader-pct">0%</div>
   </div>
@@ -881,7 +904,7 @@ button{touch-action:manipulation}
     <div class="wrap">
       <header class="topbar dashboard-topbar">
         <button class="icon-btn menu-btn" type="button" aria-label="Menu">☰</button>
-        <img class="logo dashboard-logo" src="./icon-192.png?v=410" alt="Pirate Dog">
+        <img class="logo dashboard-logo" src="./icon-192.png?v=420" alt="Pirate Dog">
         <h1>Ahoy, Captain!</h1>
         <div class="grow"></div>
         <button class="icon-btn notify-btn" type="button" aria-label="Notifications">🔔<span class="notify-dot"></span></button>
@@ -913,7 +936,7 @@ button{touch-action:manipulation}
               </div>
               <button class="payment-history-btn" type="button">PAYMENT HISTORY</button>
             </div>
-            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=410" alt="">
+            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=420" alt="">
           </div>
         </div>
 
@@ -1091,7 +1114,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=410" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=420" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1191,7 +1214,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=410" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=420" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1352,7 +1375,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=410").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=420").catch(function(){});
   }
 }
 init().catch(function(err){
