@@ -1,22 +1,9 @@
-PIRATE DOG BUDGET v4.4 — NO OVERLAP
-
-FOUND CAUSE:
-dashboard-wood-hd-v43.jpg was not a blank wood texture.
-It contained baked-in dashboard text and values including Month Overview,
-Income, Spent, Quick Actions, and Debt Payoff.
-
-v4.4:
-- Completely removes dashboard-wood-hd-v43.jpg.
-- Replaces it with a clean CSS-only dark wood texture.
-- No financial labels or values are baked into card backgrounds.
-- Adds overflow/containment rules for long live values.
-- Folded dashboard stacks Quick Actions and Debt Payoff instead of squeezing
-  them side-by-side.
-- Open dashboard remains information-rich.
-- Correct HD Tucker hero remains.
-- Eye patch remains on viewer's LEFT.
-- HD intro/loading and real 0–100% loading bar remain.
-
-IMPORTANT:
-Delete dashboard-wood-hd-v43.jpg from GitHub if it still exists.
-Upload every file in this ZIP and replace matching files.
+PIRATE DOG BUDGET V4.5
+- Approved dark gray detailed wood/brass dashboard direction.
+- Compass-style debt gauge with spokes.
+- Folded screen streamlined; open screen information-rich.
+- Tucker eye patch is on viewer's LEFT in the approved dashboard art.
+- Budget category manager: add, rename, remove.
+- Removal confirmation; transactions are not silently deleted.
+- HD intro/loading and real animated loading logic retained.
+Upload all files to GitHub root and replace matching files.

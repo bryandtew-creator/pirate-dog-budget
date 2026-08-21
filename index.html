@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=440">
-<link rel="icon" href="./icon-192.png?v=440">
-<link rel="apple-touch-icon" href="./icon-180.png?v=440">
+<link rel="manifest" href="./manifest.webmanifest?v=450">
+<link rel="icon" href="./icon-192.png?v=450">
+<link rel="apple-touch-icon" href="./icon-180.png?v=450">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=440") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=450") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=440") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=450") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -742,7 +742,7 @@ button{touch-action:manipulation}
     border-radius:12px!important;
     background:
       linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
-      url("./folded-hero-v41.jpg?v=440") center top/cover no-repeat!important;
+      url("./folded-hero-v41.jpg?v=450") center top/cover no-repeat!important;
   }
 
   /* Hide the old header contents over the cinematic art */
@@ -895,7 +895,7 @@ button{touch-action:manipulation}
   margin-bottom:10px;
   background:
     linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.08)),
-    url("./dashboard-hero-open-hd-v43.jpg?v=440") center/cover no-repeat;
+    url("./dashboard-hero-open-v45.jpg?v=450") center/cover no-repeat;
   box-shadow:0 5px 22px rgba(0,0,0,.35),inset 0 0 0 1px rgba(237,171,63,.05)
 }
 .hd43-gear{
@@ -983,7 +983,7 @@ button{touch-action:manipulation}
     min-height:370px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
-      url("./dashboard-hero-cover-hd-v43.jpg?v=440") center top/cover no-repeat
+      url("./dashboard-hero-cover-v45.jpg?v=450") center top/cover no-repeat
   }
   .hd43-grid{
     grid-template-columns:1fr 1fr;
@@ -1133,6 +1133,19 @@ button{touch-action:manipulation}
   }
 }
 
+
+/* ===== V4.5 APPROVED DASHBOARD ===== */
+#dashboard .hd43-card{background:radial-gradient(ellipse at 18% 20%,rgba(255,190,82,.045),transparent 34%),repeating-linear-gradient(2deg,#17191a 0,#17191a 2px,#202223 3px,#111314 7px,#1a1c1d 10px)!important;border-color:#95621e!important;box-shadow:inset 0 0 0 1px rgba(245,181,74,.09),inset 0 0 20px rgba(0,0,0,.55),0 3px 12px rgba(0,0,0,.35)!important}
+#dashboard .hd43-ring{position:relative!important;border:5px solid #9b6825!important;outline:2px solid #39230e!important;background:conic-gradient(#62a946 0 51%,#5a3218 51% 72%,#171512 72% 100%)!important}
+#dashboard .hd43-ring:after{content:"";position:absolute;inset:-18px;border-radius:50%;pointer-events:none;background:repeating-conic-gradient(from 0deg,#c68a32 0deg 1.2deg,transparent 1.2deg 30deg);-webkit-mask:radial-gradient(circle,transparent 0 68%,#000 69% 74%,transparent 75%);mask:radial-gradient(circle,transparent 0 68%,#000 69% 74%,transparent 75%)}
+#categoryManager{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.72);z-index:9999;padding:18px}
+#categoryManager.show{display:grid}
+#categoryManager .modal-card{width:min(560px,96vw);max-height:85dvh;overflow:auto;background:#151718;border:1px solid #9b6825;border-radius:12px;padding:16px;color:#eee;box-shadow:0 20px 70px #000}
+#categoryManager .modal-head,.category-manage-row,.field-row{display:flex;align-items:center;gap:10px}
+#categoryManager .modal-head{justify-content:space-between}.category-manage-row{margin:8px 0}
+.category-manage-row input,#newCategoryName{flex:1;background:#0d0f10;color:#eee;border:1px solid #625038;border-radius:7px;padding:11px}
+.category-manage-row button,#addCategoryBtn{border:1px solid #9b6825;background:#21170c;color:#e8b75e;border-radius:7px;padding:10px 12px}.field-row{margin-top:14px}
+
 </style>
 </head>
 <body>
@@ -1140,15 +1153,15 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=440">
-    <img src="./intro-cover-hd-v42.jpg?v=440" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=450">
+    <img src="./intro-cover-hd-v42.jpg?v=450" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=440">
-    <img src="./loading-cover-hd-v42.jpg?v=440" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=450">
+    <img src="./loading-cover-hd-v42.jpg?v=450" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
     
@@ -1177,7 +1190,7 @@ button{touch-action:manipulation}
             <strong id="paymentView">$2,250.00</strong>
           </div>
         </div>
-        <img src="./treasure-chest-v31.jpg?v=440" class="hd43-chest" alt="">
+        <img src="./treasure-chest-v31.jpg?v=450" class="hd43-chest" alt="">
       </section>
 
       <section id="monthOverview" class="hd43-card hd43-month">
@@ -1276,7 +1289,7 @@ button{touch-action:manipulation}
     </div>
   </section>
 
-  <section id="more" class="view">
+  <section id="more" class="view"><div class="wrap"><button id="manageCategoriesBtn" class="settings-row" type="button">Manage Budget Categories <span>›</span></button></div>
     <div class="wrap">
       <header class="topbar"><button class="icon-btn">☰</button><h1>MORE</h1><div class="grow"></div></header>
       <div class="card panel">
@@ -1365,7 +1378,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=440" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=450" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1465,7 +1478,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=440" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=450" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1626,13 +1639,31 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=440").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=450").catch(function(){});
   }
 }
 init().catch(function(err){
   console.error("Pirate Dog Budget init failed:",err);
 });
 })();
+
+(function(){
+ const DEFAULT_CATS=["Groceries","Restaurants","Gas","Amazon","Entertainment","Shopping","Home","Other"],KEY="pdb_v45_categories";
+ function getCats(){try{const x=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(x)&&x.length)return x}catch(e){}return DEFAULT_CATS.slice()}
+ function saveCats(c){localStorage.setItem(KEY,JSON.stringify(c));window.dispatchEvent(new Event("pdb-categories-changed"))}
+ function render(){const box=document.getElementById("categoryManagerList");if(!box)return;const cats=getCats();box.innerHTML=cats.map((c,i)=>`<div class="category-manage-row"><input data-cat-index="${i}" value="${String(c).replace(/"/g,"&quot;")}"><button data-remove-cat="${i}" ${cats.length<=1?"disabled":""}>Remove</button></div>`).join("")}
+ function open(){const m=document.getElementById("categoryManager");if(m){render();m.classList.add("show");m.setAttribute("aria-hidden","false")}}
+ function close(){const m=document.getElementById("categoryManager");if(m){m.classList.remove("show");m.setAttribute("aria-hidden","true")}}
+ document.addEventListener("click",e=>{
+  if(e.target.closest("#manageCategoriesBtn"))open(); if(e.target.closest("#closeCategoryManager"))close();
+  const rm=e.target.closest("[data-remove-cat]");if(rm){const c=getCats(),i=+rm.dataset.removeCat;if(c.length>1&&confirm(`Remove "${c[i]}" from your budget categories? Existing transactions will not be deleted.`)){c.splice(i,1);saveCats(c);render()}}
+  if(e.target.closest("#addCategoryBtn")){const inp=document.getElementById("newCategoryName"),n=(inp?.value||"").trim();if(!n)return;const c=getCats();if(c.some(x=>x.toLowerCase()===n.toLowerCase())){alert("That category already exists.");return}c.push(n);saveCats(c);inp.value="";render()}
+ });
+ document.addEventListener("change",e=>{if(e.target.matches("[data-cat-index]")){const c=getCats(),i=+e.target.dataset.catIndex,n=e.target.value.trim();if(!n){e.target.value=c[i];return}if(c.some((x,j)=>j!==i&&x.toLowerCase()===n.toLowerCase())){alert("That category already exists.");e.target.value=c[i];return}c[i]=n;saveCats(c);render()}});
+ window.PDBCategories={get:getCats,save:saveCats};
+})();
+
 </script>
+<div id="categoryManager" class="modal" aria-hidden="true"><div class="modal-card"><div class="modal-head"><h2>Budget Categories</h2><button id="closeCategoryManager" class="icon-btn">✕</button></div><p class="muted">Add, rename, or remove categories. Existing transactions are kept if a category is removed.</p><div id="categoryManagerList"></div><div class="field-row"><input id="newCategoryName" placeholder="New category name" maxlength="28"><button id="addCategoryBtn">Add Category</button></div></div></div>
 </body>
 </html>
