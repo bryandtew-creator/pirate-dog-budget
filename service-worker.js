@@ -1,15 +1,16 @@
-const CACHE="pirate-dog-budget-v3.0-clean-rewrite";
+const CACHE="pirate-dog-budget-v3.1-dashboard";
 const APP_SHELL=[
- "./index.html?v=300",
- "./manifest.webmanifest?v=300",
- "./icon-180.png?v=300",
- "./icon-192.png?v=300",
- "./icon-512.png?v=300",
- "./intro-cover-final.jpg?v=300",
- "./intro-open-final.jpg?v=300",
- "./loading-cover-final.jpg?v=300",
- "./loading-open-final.jpg?v=300",
- "./ocean-waves-v15.png?v=300"
+ "./index.html?v=310",
+ "./manifest.webmanifest?v=310",
+ "./icon-180.png?v=310",
+ "./icon-192.png?v=310",
+ "./icon-512.png?v=310",
+ "./intro-cover-final.jpg?v=310",
+ "./intro-open-final.jpg?v=310",
+ "./loading-cover-final.jpg?v=310",
+ "./loading-open-final.jpg?v=310",
+ "./ocean-waves-v15.png?v=310",
+ "./treasure-chest-v31.jpg?v=310"
 ];
 
 self.addEventListener("install",event=>{
@@ -35,6 +36,6 @@ self.addEventListener("fetch",event=>{
         caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{});
       }
       return response;
-    }).catch(()=>caches.match(event.request).then(cached=>cached||caches.match("./index.html?v=300")))
+    }).catch(()=>caches.match(event.request).then(cached=>cached||caches.match("./index.html?v=310")))
   );
 });

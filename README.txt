@@ -1,35 +1,33 @@
-PIRATE DOG BUDGET v3.0 — CLEAN REWRITE
+PIRATE DOG BUDGET v3.1 — DASHBOARD REDESIGN
 
-This version was rewritten from scratch instead of patching the v2.x code.
+This release keeps the stable v3.0 clean-rewrite startup and data logic.
+Only the dashboard visual/layout system was redesigned to match the latest
+approved folded/open dashboard concept.
 
-STARTUP DESIGN
-- The first script in the document is a standalone startup controller.
-- It does not use IndexedDB.
-- It does not use the $ helper.
-- It does not use the service worker.
-- It does not wait for app initialization.
-- 0–3.0 seconds: intro
-- 3.0–5.7 seconds: loading
-- 5.7 seconds onward: dashboard
+FOLDED / COVER DASHBOARD
+- Larger Pirate Dog header
+- Pixel-wave divider
+- Large Chase Balance card with treasure chest
+- Monthly Payment and Payment History button
+- 3 x 3 category grid
+- Bottom navigation
+- Open-screen analytics cards are hidden
 
-FINAL CONCEPT
-- Uses intro-cover-final.jpg / intro-open-final.jpg.
-- Uses loading-cover-final.jpg / loading-open-final.jpg.
-- Folded dashboard: Chase balance + 3x3 categories + navigation.
-- Open dashboard: Month Overview + Chase Balance, 9 categories, Budget / Debt / Recent.
-- Layout reacts live when the Fold is opened or closed.
+OPEN / INNER DASHBOARD
+- Month Overview + Chase Balance top row
+- Treasure chest graphic in Chase card
+- 9 category tiles in one row
+- Budget Progress / Debt Payoff / Recent Transactions lower row
+- Larger card spacing and typography
+- Bottom navigation with center red + button
 
-DATA
-- Uses the existing database name pirate-dog-budget-db to preserve prior data.
-- Reimbursed / parent-paid transactions are excluded from personal monthly spending.
-- CSV import/export included.
+STARTUP
+Unchanged from v3.0:
+0–3 sec intro
+3–5.7 sec loading
+then dashboard
 
-CACHE BUSTING
-- All core assets use ?v=300 URLs.
-- Service worker cache is pirate-dog-budget-v3.0-clean-rewrite.
-- This helps prevent GitHub Pages/Chrome from silently reusing a broken v2.x file.
-
-GITHUB ROOT SHOULD CONTAIN ONLY
+GITHUB ROOT FILES
 index.html
 manifest.webmanifest
 service-worker.js
@@ -41,14 +39,9 @@ intro-open-final.jpg
 loading-cover-final.jpg
 loading-open-final.jpg
 ocean-waves-v15.png
+treasure-chest-v31.jpg
 README.txt
 
 UPLOAD
-1. Unzip this file.
-2. In your existing GitHub repository, upload all 12 individual files to the root.
-3. Replace existing same-name files.
-4. You may delete old version-specific v14-v23 artwork/files after v3.0 works.
-5. Commit to main.
-6. Wait for GitHub Pages to finish deploying.
-7. Test the URL in a brand-new Chrome Incognito tab.
-8. The intro must disappear after 3 seconds even if the rest of the app has a problem.
+Upload all individual files in this ZIP to the repository root and replace
+matching files. Commit directly to main.

@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=300">
-<link rel="icon" href="./icon-192.png?v=300">
-<link rel="apple-touch-icon" href="./icon-180.png?v=300">
+<link rel="manifest" href="./manifest.webmanifest?v=310">
+<link rel="icon" href="./icon-192.png?v=310">
+<link rel="apple-touch-icon" href="./icon-180.png?v=310">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=300") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=310") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -247,6 +247,356 @@ button{touch-action:manipulation}
 @media(prefers-reduced-motion:reduce){
   .splash{transition:none}
 }
+
+/* =========================================================
+   v3.1 — FINAL FOLDED / OPEN DASHBOARD REDESIGN
+   Based on the latest approved dashboard concept.
+   ========================================================= */
+
+.dashboard-topbar{
+  position:relative;
+  padding:8px 6px 10px;
+  margin-bottom:0;
+}
+.dashboard-logo{
+  width:48px;
+  height:48px;
+  border:2px solid #18a8d8;
+}
+.dashboard-topbar h1{
+  font-size:clamp(20px,2.4vw,31px);
+  font-weight:700;
+}
+.menu-btn{
+  font-size:26px;
+  color:#f0b32f;
+}
+.notify-btn{
+  position:relative;
+}
+.notify-dot{
+  position:absolute;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  right:5px;
+  top:5px;
+  background:#ef3528;
+}
+.pixel-wave-divider{
+  height:28px;
+  margin:0 0 8px;
+  background:
+    url("./ocean-waves-v15.png?v=310") left center/256px 96px repeat-x;
+  background-position:left 52%;
+  opacity:.95;
+}
+.dashboard-shell{
+  display:grid;
+  gap:10px;
+}
+.summary-grid{
+  display:grid;
+  gap:10px;
+}
+.summary{
+  min-height:174px;
+  border-radius:14px;
+  border:2px solid #d58b13;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(22,91,125,.08),transparent 55%),
+    linear-gradient(180deg,#071928,#03111c);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+.summary-title{
+  font-size:15px;
+  color:#f4f4f4;
+  letter-spacing:.01em;
+}
+.summary-period{
+  margin-top:4px;
+  font-size:13px;
+  color:#d2d2d2;
+}
+.summary-big{
+  font-size:clamp(35px,4.4vw,52px);
+  color:#f0b544;
+  margin:10px 0 8px;
+}
+.metrics{
+  margin-top:13px;
+  border-top:1px solid #30404a;
+}
+.metric{
+  padding:15px 8px 8px;
+  border-right:1px solid #30404a;
+}
+.metric:last-child{border-right:0}
+.metric span{
+  font-size:12px;
+  color:#ffd04b;
+}
+.metric strong{
+  display:block;
+  margin-top:9px;
+  font-size:clamp(19px,2.1vw,28px);
+}
+.chase-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 190px;
+  align-items:center;
+  text-align:left;
+  padding:18px 20px;
+}
+.chase-copy{
+  min-width:0;
+}
+.chase-card .summary-title{
+  text-align:center;
+}
+.chase-card .summary-big{
+  text-align:center;
+}
+.chase-rule{
+  height:1px;
+  background:#39434a;
+  margin:10px 0 12px;
+}
+.payment-line{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  font-size:15px;
+}
+.payment-line span{
+  color:#ffd04b;
+}
+.payment-history-btn,
+.debt-link-btn{
+  min-height:38px;
+  border-radius:6px;
+  border:1px solid #c77b0c;
+  background:#06131d;
+  color:#ffd04b;
+  font-weight:700;
+}
+.payment-history-btn{
+  display:block;
+  margin:12px 0 0 auto;
+  width:min(220px,100%);
+}
+.treasure-chest{
+  width:100%;
+  max-height:150px;
+  object-fit:contain;
+  border-radius:10px;
+  mix-blend-mode:screen;
+}
+
+.dashboard-quick{
+  margin-top:0;
+  gap:10px;
+}
+.dashboard-quick .quick{
+  min-height:104px;
+  border-radius:10px;
+  border:1px solid #78530f;
+}
+.dashboard-quick .quick .ico{
+  font-size:34px;
+}
+.dashboard-quick .quick .lbl{
+  margin-top:4px;
+  font-size:14px;
+}
+
+.lower-grid{
+  gap:10px;
+  margin-top:0;
+}
+.panel{
+  border-radius:12px;
+  border:1.5px solid #c57e0e;
+  background:linear-gradient(180deg,#061724,#03111b);
+  padding:16px;
+}
+.panel-title{
+  margin-bottom:13px;
+  color:#ffc431;
+  font-size:16px;
+}
+.view-link{
+  border:0;
+  background:none;
+  color:#ffc431;
+  font-size:14px;
+}
+.prow{
+  grid-template-columns:minmax(120px,1.15fr) 1.45fr 46px;
+  gap:8px;
+  margin-bottom:4px;
+}
+.pname{
+  font-size:13px;
+}
+.track{
+  height:7px;
+  border-radius:6px;
+  overflow:hidden;
+  background:#172631;
+}
+.pct{
+  font-size:13px;
+}
+.ring{
+  width:min(240px,70%);
+}
+.ring-center strong{
+  font-size:46px;
+  color:#f0b53f;
+}
+.ring-center span{
+  font-size:15px;
+}
+.debt-meta-row{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  font-size:13px;
+}
+.debt-meta-row span:last-child{
+  text-align:right;
+}
+.debt-link-btn{
+  width:100%;
+  margin-top:6px;
+}
+.tx{
+  padding:11px 0;
+  grid-template-columns:38px minmax(0,1fr) auto;
+}
+.tx-icon{
+  width:34px;
+  height:34px;
+}
+.tx-name{
+  font-size:14px;
+}
+.tx-meta,
+.tx-amt{
+  font-size:12px;
+}
+
+/* Folded / cover screen */
+@media(max-width:699px), (max-aspect-ratio:.72){
+  #app{
+    padding-left:max(16px,env(safe-area-inset-left));
+    padding-right:max(16px,env(safe-area-inset-right));
+  }
+  .dashboard-topbar{
+    min-height:78px;
+  }
+  .dashboard-logo{
+    width:56px;
+    height:56px;
+  }
+  .dashboard-topbar h1{
+    font-size:24px;
+  }
+  .pixel-wave-divider{
+    height:35px;
+    margin-bottom:10px;
+  }
+
+  .summary-grid{
+    grid-template-columns:1fr;
+  }
+  #monthOverview{
+    display:none;
+  }
+  #chaseBalance{
+    display:grid;
+  }
+  .chase-card{
+    min-height:235px;
+    grid-template-columns:minmax(0,1fr) 118px;
+    padding:18px 16px;
+  }
+  .chase-card .summary-title{
+    font-size:16px;
+  }
+  .chase-card .summary-big{
+    font-size:38px;
+  }
+  .payment-line{
+    font-size:14px;
+    align-items:center;
+  }
+  .payment-history-btn{
+    margin:16px auto 0;
+    width:90%;
+  }
+  .treasure-chest{
+    max-height:130px;
+  }
+
+  .dashboard-quick{
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+  .dashboard-quick .quick{
+    min-height:110px;
+  }
+  .dashboard-quick .quick .ico{
+    font-size:36px;
+  }
+  .dashboard-quick .quick .lbl{
+    font-size:14px;
+  }
+
+  #dashboardLower{
+    display:none;
+  }
+}
+
+/* Open inner screen */
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  .dashboard-shell{
+    gap:12px;
+  }
+  .summary-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  #monthOverview,
+  #chaseBalance{
+    display:grid;
+  }
+  .dashboard-quick{
+    grid-template-columns:repeat(9,minmax(0,1fr));
+  }
+  #dashboardLower{
+    display:grid;
+    grid-template-columns:1.06fr .96fr 1.06fr;
+  }
+}
+
+/* Larger open Fold */
+@media(min-width:1100px){
+  .dashboard-topbar{
+    padding-top:10px;
+  }
+  .dashboard-quick .quick{
+    min-height:118px;
+  }
+  .dashboard-quick .quick .ico{
+    font-size:38px;
+  }
+  .panel{
+    min-height:330px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -254,73 +604,89 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-final.jpg?v=300">
-    <img src="./intro-cover-final.jpg?v=300" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-final.jpg?v=310">
+    <img src="./intro-cover-final.jpg?v=310" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-final.jpg?v=300">
-    <img src="./loading-cover-final.jpg?v=300" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-final.jpg?v=310">
+    <img src="./loading-cover-final.jpg?v=310" alt="Setting sail loading screen">
   </picture>
 </div>
 
 <main id="app">
   <section id="dashboard" class="view active">
     <div class="wrap">
-      <header class="topbar">
-        <button class="icon-btn" type="button">☰</button>
-        <img class="logo" src="./icon-192.png?v=300" alt="Pirate Dog">
+      <header class="topbar dashboard-topbar">
+        <button class="icon-btn menu-btn" type="button" aria-label="Menu">☰</button>
+        <img class="logo dashboard-logo" src="./icon-192.png?v=310" alt="Pirate Dog">
         <h1>Ahoy, Captain!</h1>
         <div class="grow"></div>
-        <button class="icon-btn" type="button">🔔</button>
-        <button class="icon-btn" type="button" data-go="more">⚙</button>
+        <button class="icon-btn notify-btn" type="button" aria-label="Notifications">🔔<span class="notify-dot"></span></button>
+        <button class="icon-btn" type="button" data-go="more" aria-label="Settings">⚙</button>
       </header>
 
-      <div class="summary-grid">
-        <div id="monthOverview" class="card summary">
-          <div class="summary-title">MONTH OVERVIEW</div>
-          <div id="monthText" style="font-size:9px;color:#ddd">This month</div>
-          <div class="metrics">
-            <div class="metric"><span>Income</span><strong id="incomeView" class="good">$5,800.00</strong></div>
-            <div class="metric"><span>Spent</span><strong id="spentView" class="bad">$0.00</strong></div>
-            <div class="metric"><span>Left to Spend</span><strong id="leftView" class="good">$3,550.00</strong></div>
-          </div>
-        </div>
-        <div id="chaseBalance" class="card summary">
-          <div class="summary-title">CHASE BALANCE</div>
-          <div id="balanceView" class="summary-big">$13,938.07</div>
-          <div style="font-size:9px">Monthly Payment &nbsp; <b id="paymentView">$2,250.00</b></div>
-        </div>
-      </div>
+      <div class="pixel-wave-divider" aria-hidden="true"></div>
 
-      <div id="dashboardQuick" class="quick-grid"></div>
-
-      <div id="dashboardLower" class="lower-grid">
-        <div class="card panel">
-          <div class="panel-title">BUDGET PROGRESS</div>
-          <div id="budgetProgress" class="progress-list"></div>
-        </div>
-        <div class="card panel">
-          <div class="panel-title">DEBT PAYOFF PROGRESS</div>
-          <div class="debt-panel">
-            <div class="ring"><div class="ring-center"><strong id="debtPct">0%</strong><span>Paid Off</span></div></div>
-            <div style="width:100%;display:flex;justify-content:space-between;font-size:9px">
-              <span>Paid to Date<br><b id="paidView" class="good">$0.00</b></span>
-              <span style="text-align:right">Est. Payoff Date<br><b id="payoffView">—</b></span>
+      <div class="dashboard-shell">
+        <div class="summary-grid">
+          <div id="monthOverview" class="card summary month-overview-card">
+            <div class="summary-title">MONTH OVERVIEW</div>
+            <div id="monthText" class="summary-period">This month</div>
+            <div class="metrics">
+              <div class="metric"><span>Income</span><strong id="incomeView" class="good">$5,800.00</strong></div>
+              <div class="metric"><span>Spent</span><strong id="spentView" class="bad">$0.00</strong></div>
+              <div class="metric"><span>Left to Spend</span><strong id="leftView" class="good">$3,550.00</strong></div>
             </div>
           </div>
+
+          <div id="chaseBalance" class="card summary chase-card">
+            <div class="chase-copy">
+              <div class="summary-title">CHASE BALANCE</div>
+              <div id="balanceView" class="summary-big">$13,938.07</div>
+              <div class="chase-rule"></div>
+              <div class="payment-line">
+                <span>Monthly Payment</span>
+                <b id="paymentView">$2,250.00</b>
+              </div>
+              <button class="payment-history-btn" type="button">PAYMENT HISTORY</button>
+            </div>
+            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=310" alt="">
+          </div>
         </div>
-        <div class="card panel">
-          <div class="panel-title"><span>RECENT TRANSACTIONS</span><button class="icon-btn" style="font-size:10px" type="button" data-go="transactions">View All</button></div>
-          <div id="recentView" class="tx-list"></div>
+
+        <div id="dashboardQuick" class="quick-grid dashboard-quick"></div>
+
+        <div id="dashboardLower" class="lower-grid">
+          <div class="card panel budget-card">
+            <div class="panel-title"><span>BUDGET PROGRESS</span><button class="view-link" type="button" data-go="budget">View All</button></div>
+            <div id="budgetProgress" class="progress-list"></div>
+          </div>
+
+          <div class="card panel debt-card">
+            <div class="panel-title">DEBT PAYOFF PROGRESS</div>
+            <div class="debt-panel">
+              <div class="ring"><div class="ring-center"><strong id="debtPct">0%</strong><span>Paid Off</span></div></div>
+              <div class="debt-meta-row">
+                <span>Paid to Date<br><b id="paidView" class="good">$0.00</b></span>
+                <span>Est. Payoff Date<br><b id="payoffView">—</b></span>
+              </div>
+              <button class="debt-link-btn" type="button" data-go="budget">VIEW DEBT TRACKER</button>
+            </div>
+          </div>
+
+          <div class="card panel recent-card">
+            <div class="panel-title"><span>RECENT TRANSACTIONS</span><button class="view-link" type="button" data-go="transactions">View All</button></div>
+            <div id="recentView" class="tx-list"></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="transactions" class="view">
+<section id="transactions" class="view">
     <div class="wrap">
       <header class="topbar"><button class="icon-btn">☰</button><h1>TRANSACTIONS</h1><div class="grow"></div></header>
       <div class="card panel">
@@ -690,7 +1056,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=300").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=310").catch(function(){});
   }
 }
 init().catch(function(err){
