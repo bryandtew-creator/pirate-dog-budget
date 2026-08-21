@@ -524,6 +524,21 @@ button{touch-action:manipulation}
 
 <script>
 (()=>{
+const $=id=>document.getElementById(id);
+
+// Hard startup fail-safe: never allow a JS/storage error to trap the user on a splash screen.
+setTimeout(()=>{
+  const intro=document.getElementById("introSplash");
+  const load=document.getElementById("loadingSplash");
+  if(intro)intro.classList.add("hide");
+  if(load)load.classList.remove("hide");
+},3000);
+setTimeout(()=>{
+  const intro=document.getElementById("introSplash");
+  const load=document.getElementById("loadingSplash");
+  if(intro)intro.classList.add("hide");
+  if(load)load.classList.add("hide");
+},5700);
 
 function startStartupSequence(){
  const intro=$("introSplash"),load=$("loadingSplash");
@@ -541,7 +556,6 @@ const CATEGORIES=[
  ["Entertainment",300,"🎭"],["Shopping",300,"🛍️"],["Home",300,"⌂"],["Other",200,"•••"],["Edit",0,"✎"],
  ["Medical (Parent-paid)",0,"🩺"],["Pet / Vet (Parent-paid)",0,"🐾"],["Parent Purchase",0,"🤝"]
 ];
-const $=id=>document.getElementById(id);
 const money=n=>Number(n||0).toLocaleString("en-US",{style:"currency",currency:"USD"});
 const thisMonth=()=>new Date().toISOString().slice(0,7);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));

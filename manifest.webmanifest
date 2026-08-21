@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Pirate Dog Budget",
   "short_name": "Pirate Dog",
-  "description": "Pirate Dog Budget v2.2 \u2014 final concept matched for folded and open Z Fold layouts.",
+  "description": "Pirate Dog Budget v2.3 \u2014 final concept with startup lockup fix.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -1,4 +1,4 @@
-const CACHE="pirate-dog-budget-v2.2-finalconcept";
+const CACHE="pirate-dog-budget-v2.3-startupfix";
 const ASSETS=[
  "./","./index.html","./manifest.webmanifest",
  "./icon-180.png","./icon-192.png","./icon-512.png",
