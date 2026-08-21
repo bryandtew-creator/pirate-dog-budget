@@ -2,13 +2,13 @@
   "id": "./",
   "name": "Pirate Dog Budget",
   "short_name": "Pirate Dog",
-  "description": "Pirate Dog Budget v1.8 \u2014 responsive Fold intro, 3-second automatic startup, Ocean Dark.",
+  "description": "Pirate Dog Budget \u2014 Fold-optimized personal budget and debt tracker.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#020b12",
-  "theme_color": "#03101a",
+  "background_color": "#020a11",
+  "theme_color": "#020a11",
   "categories": [
     "finance",
     "productivity"
