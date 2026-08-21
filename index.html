@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=430">
-<link rel="icon" href="./icon-192.png?v=430">
-<link rel="apple-touch-icon" href="./icon-180.png?v=430">
+<link rel="manifest" href="./manifest.webmanifest?v=440">
+<link rel="icon" href="./icon-192.png?v=440">
+<link rel="apple-touch-icon" href="./icon-180.png?v=440">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=430") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=440") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=430") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=440") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -742,7 +742,7 @@ button{touch-action:manipulation}
     border-radius:12px!important;
     background:
       linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
-      url("./folded-hero-v41.jpg?v=430") center top/cover no-repeat!important;
+      url("./folded-hero-v41.jpg?v=440") center top/cover no-repeat!important;
   }
 
   /* Hide the old header contents over the cinematic art */
@@ -895,7 +895,7 @@ button{touch-action:manipulation}
   margin-bottom:10px;
   background:
     linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.08)),
-    url("./dashboard-hero-open-hd-v43.jpg?v=430") center/cover no-repeat;
+    url("./dashboard-hero-open-hd-v43.jpg?v=440") center/cover no-repeat;
   box-shadow:0 5px 22px rgba(0,0,0,.35),inset 0 0 0 1px rgba(237,171,63,.05)
 }
 .hd43-gear{
@@ -912,7 +912,7 @@ button{touch-action:manipulation}
   overflow:hidden;
   background:
     linear-gradient(rgba(20,13,8,.66),rgba(7,6,5,.88)),
-    url("./dashboard-wood-hd-v43.jpg?v=430") center/cover no-repeat;
+    none;
   box-shadow:inset 0 0 0 1px rgba(236,166,62,.05),0 4px 14px rgba(0,0,0,.25)
 }
 .hd43-title{
@@ -983,7 +983,7 @@ button{touch-action:manipulation}
     min-height:370px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
-      url("./dashboard-hero-cover-hd-v43.jpg?v=430") center top/cover no-repeat
+      url("./dashboard-hero-cover-hd-v43.jpg?v=440") center top/cover no-repeat
   }
   .hd43-grid{
     grid-template-columns:1fr 1fr;
@@ -1036,6 +1036,103 @@ button{touch-action:manipulation}
   .hd43-recent{grid-area:recent}
 }
 
+
+/* =========================================================
+   v4.4 NO-OVERLAP DASHBOARD
+   No dashboard card uses screenshot-derived UI as a background.
+   ========================================================= */
+#dashboard .hd43-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 22% 12%,rgba(204,132,36,.055),transparent 32%),
+    radial-gradient(circle at 78% 88%,rgba(0,0,0,.34),transparent 45%),
+    repeating-linear-gradient(
+      0deg,
+      #17100b 0px,
+      #17100b 3px,
+      #1c140d 4px,
+      #110c08 8px,
+      #19110b 11px
+    ) !important;
+  background-color:#120d09!important;
+}
+#dashboard .hd43-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 78px,
+      rgba(211,143,43,.035) 79px,
+      transparent 81px
+    );
+}
+#dashboard .hd43-card > *{
+  position:relative;
+  z-index:1;
+}
+#dashboard .hd43-balance-copy,
+#dashboard .hd43-metrics>div,
+#dashboard .hd43-debt-stats,
+#dashboard .tx>div,
+#dashboard .hd43-grid>*{
+  min-width:0;
+}
+#dashboard .hd43-balance-number{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#dashboard .hd43-progress .pname{
+  min-width:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#dashboard .hd43-tx-list .tx-name,
+#dashboard .hd43-tx-list .tx-meta{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Cover screen: stack major interactive panels so nothing is squeezed together. */
+@media(max-width:699px), (max-aspect-ratio:.72){
+  #dashboard .hd43-grid{
+    grid-template-columns:1fr!important;
+    grid-template-areas:
+      "balance"
+      "month"
+      "quick"
+      "debt"
+      "recent"!important;
+  }
+  #dashboard .hd43-quick-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  }
+  #dashboard .hd43-debt-inner{
+    grid-template-columns:125px minmax(0,1fr)!important;
+    gap:12px!important;
+  }
+  #dashboard .hd43-ring{
+    width:118px!important;
+  }
+}
+
+/* Open screen: explicitly contain every card inside its grid area. */
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  #dashboard .hd43-grid>*{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1043,15 +1140,15 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=430">
-    <img src="./intro-cover-hd-v42.jpg?v=430" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=440">
+    <img src="./intro-cover-hd-v42.jpg?v=440" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=430">
-    <img src="./loading-cover-hd-v42.jpg?v=430" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=440">
+    <img src="./loading-cover-hd-v42.jpg?v=440" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
     
@@ -1080,7 +1177,7 @@ button{touch-action:manipulation}
             <strong id="paymentView">$2,250.00</strong>
           </div>
         </div>
-        <img src="./treasure-chest-v31.jpg?v=430" class="hd43-chest" alt="">
+        <img src="./treasure-chest-v31.jpg?v=440" class="hd43-chest" alt="">
       </section>
 
       <section id="monthOverview" class="hd43-card hd43-month">
@@ -1268,7 +1365,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=430" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=440" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1368,7 +1465,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=430" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=440" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1529,7 +1626,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=430").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=440").catch(function(){});
   }
 }
 init().catch(function(err){

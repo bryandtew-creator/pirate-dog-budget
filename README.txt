@@ -1,22 +1,22 @@
-PIRATE DOG BUDGET v4.3 — REAL HD DASHBOARD
+PIRATE DOG BUDGET v4.4 — NO OVERLAP
 
-This corrects the core problem in v4.2:
-v4.2 upgraded intro/loading, but the dashboard was still the old v3/v4 live UI.
+FOUND CAUSE:
+dashboard-wood-hd-v43.jpg was not a blank wood texture.
+It contained baked-in dashboard text and values including Month Overview,
+Income, Spent, Quick Actions, and Debt Payoff.
 
-v4.3 DASHBOARD
-- Uses dashboard-hero-cover-hd-v43.jpg on folded cover.
-- Uses dashboard-hero-open-hd-v43.jpg on open inner screen.
-- Both are derived from the latest corrected HD Tucker artwork.
-- Tucker's eye patch remains on viewer's LEFT.
-- Clean ship flags.
-- No Chart Your Course / Control Your Treasure scroll on folded dashboard.
-- Dynamic cards now use dashboard-wood-hd-v43.jpg sampled from the HD concept.
-- Gold/brass borders, HD wood texture, upgraded typography and gauge styling.
-- Folded screen: balance, month overview, quick actions, debt gauge, recent transactions.
-- Full budget-progress list is hidden on folded screen to reduce clutter.
-- Open screen: balance, month overview, quick categories, budget progress, debt gauge and recent transactions.
+v4.4:
+- Completely removes dashboard-wood-hd-v43.jpg.
+- Replaces it with a clean CSS-only dark wood texture.
+- No financial labels or values are baked into card backgrounds.
+- Adds overflow/containment rules for long live values.
+- Folded dashboard stacks Quick Actions and Debt Payoff instead of squeezing
+  them side-by-side.
+- Open dashboard remains information-rich.
+- Correct HD Tucker hero remains.
+- Eye patch remains on viewer's LEFT.
+- HD intro/loading and real 0–100% loading bar remain.
 
-STARTUP
-The working HD intro/loading and real animated 0–100% loading bar from v4.2 are retained.
-
-Upload EVERY file in this ZIP to the GitHub repository root and replace matching files.
+IMPORTANT:
+Delete dashboard-wood-hd-v43.jpg from GitHub if it still exists.
+Upload every file in this ZIP and replace matching files.

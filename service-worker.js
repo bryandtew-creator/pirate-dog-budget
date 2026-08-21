@@ -1,37 +1,36 @@
-const CACHE='pirate-dog-budget-v4.3-real-hd-dashboard';
+const CACHE='pirate-dog-budget-v4.4-no-overlap';
 const ASSETS=[
-  "./index.html?v=430",
-  "./manifest.webmanifest?v=430",
-  "./icon-180.png?v=430",
-  "./icon-192.png?v=430",
-  "./icon-512.png?v=430",
-  "./intro-cover-hd-v42.jpg?v=430",
-  "./intro-open-hd-v42.jpg?v=430",
-  "./loading-cover-hd-v42.jpg?v=430",
-  "./loading-open-hd-v42.jpg?v=430",
-  "./dashboard-hero-cover-hd-v43.jpg?v=430",
-  "./dashboard-hero-open-hd-v43.jpg?v=430",
-  "./dashboard-wood-hd-v43.jpg?v=430",
-  "./treasure-chest-v31.jpg?v=430",
-  "./ocean-waves-v15.png?v=430",
-  "./cat-amazon-tile-v32.png?v=430",
-  "./cat-amazon-icon-v32.png?v=430",
-  "./cat-edit-tile-v32.png?v=430",
-  "./cat-edit-icon-v32.png?v=430",
-  "./cat-entertainment-tile-v32.png?v=430",
-  "./cat-entertainment-icon-v32.png?v=430",
-  "./cat-gas-tile-v32.png?v=430",
-  "./cat-gas-icon-v32.png?v=430",
-  "./cat-groceries-tile-v32.png?v=430",
-  "./cat-groceries-icon-v32.png?v=430",
-  "./cat-home-tile-v32.png?v=430",
-  "./cat-home-icon-v32.png?v=430",
-  "./cat-other-tile-v32.png?v=430",
-  "./cat-other-icon-v32.png?v=430",
-  "./cat-restaurants-tile-v32.png?v=430",
-  "./cat-restaurants-icon-v32.png?v=430",
-  "./cat-shopping-tile-v32.png?v=430",
-  "./cat-shopping-icon-v32.png?v=430"
+  "./index.html?v=440",
+  "./manifest.webmanifest?v=440",
+  "./icon-180.png?v=440",
+  "./icon-192.png?v=440",
+  "./icon-512.png?v=440",
+  "./intro-cover-hd-v42.jpg?v=440",
+  "./intro-open-hd-v42.jpg?v=440",
+  "./loading-cover-hd-v42.jpg?v=440",
+  "./loading-open-hd-v42.jpg?v=440",
+  "./dashboard-hero-cover-hd-v43.jpg?v=440",
+  "./dashboard-hero-open-hd-v43.jpg?v=440",
+  "./treasure-chest-v31.jpg?v=440",
+  "./ocean-waves-v15.png?v=440",
+  "./cat-amazon-tile-v32.png?v=440",
+  "./cat-amazon-icon-v32.png?v=440",
+  "./cat-edit-tile-v32.png?v=440",
+  "./cat-edit-icon-v32.png?v=440",
+  "./cat-entertainment-tile-v32.png?v=440",
+  "./cat-entertainment-icon-v32.png?v=440",
+  "./cat-gas-tile-v32.png?v=440",
+  "./cat-gas-icon-v32.png?v=440",
+  "./cat-groceries-tile-v32.png?v=440",
+  "./cat-groceries-icon-v32.png?v=440",
+  "./cat-home-tile-v32.png?v=440",
+  "./cat-home-icon-v32.png?v=440",
+  "./cat-other-tile-v32.png?v=440",
+  "./cat-other-icon-v32.png?v=440",
+  "./cat-restaurants-tile-v32.png?v=440",
+  "./cat-restaurants-icon-v32.png?v=440",
+  "./cat-shopping-tile-v32.png?v=440",
+  "./cat-shopping-icon-v32.png?v=440"
 ];
 
 self.addEventListener("install",e=>{
@@ -51,6 +50,6 @@ self.addEventListener("fetch",e=>{
         caches.open(CACHE).then(c=>c.put(e.request,copy)).catch(()=>{});
       }
       return r;
-    }).catch(()=>caches.match(e.request).then(r=>r||caches.match("./index.html?v=430")))
+    }).catch(()=>caches.match(e.request).then(r=>r||caches.match("./index.html?v=440")))
   );
 });
