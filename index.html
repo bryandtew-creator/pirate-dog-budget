@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=450">
-<link rel="icon" href="./icon-192.png?v=450">
-<link rel="apple-touch-icon" href="./icon-180.png?v=450">
+<link rel="manifest" href="./manifest.webmanifest?v=451">
+<link rel="icon" href="./icon-192.png?v=451">
+<link rel="apple-touch-icon" href="./icon-180.png?v=451">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=450") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=451") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=450") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=451") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -721,138 +721,6 @@ button{touch-action:manipulation}
 }
 
 
-/* =========================================================
-   v4.1 — CORRECTED FOLDED COVER
-   - Tucker patch on viewer's LEFT
-   - no "Chart Your Course..." scroll/banner
-   - clean ship flags
-   - latest approved folded dashboard look
-   ========================================================= */
-
-@media(max-width:699px), (max-aspect-ratio:.72){
-
-  /* Replace compact app-header look with approved cinematic hero art */
-  #dashboard .dashboard-topbar{
-    position:relative;
-    min-height:330px!important;
-    padding:0!important;
-    margin:0 0 9px!important;
-    overflow:hidden;
-    border:1px solid #845716!important;
-    border-radius:12px!important;
-    background:
-      linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
-      url("./folded-hero-v41.jpg?v=450") center top/cover no-repeat!important;
-  }
-
-  /* Hide the old header contents over the cinematic art */
-  #dashboard .dashboard-topbar > *{
-    visibility:hidden!important;
-  }
-
-  /* Keep a real settings button available */
-  #dashboard .dashboard-topbar::after{
-    content:"⚙";
-    visibility:visible;
-    position:absolute;
-    top:14px;
-    left:14px;
-    width:42px;
-    height:42px;
-    display:grid;
-    place-items:center;
-    border-radius:50%;
-    border:1px solid #a87320;
-    background:rgba(10,10,8,.78);
-    color:#dfaa4a;
-    font-size:23px;
-    z-index:3;
-    box-shadow:0 2px 10px rgba(0,0,0,.35);
-  }
-
-  /* No tagline/banner on the folded dashboard */
-  #dashboard .hd-tagline,
-  #dashboard .tagline,
-  #dashboard .tagline-scroll,
-  #dashboard .hero-tagline,
-  #dashboard [class*="tagline"]{
-    display:none!important;
-  }
-
-  /* Folded layout: balanced, quick-use, readable */
-  #dashboard .dashboard-shell{
-    gap:8px!important;
-  }
-
-  #dashboard .summary-grid{
-    display:grid!important;
-    grid-template-columns:1fr!important;
-    gap:8px!important;
-  }
-
-  #dashboard #chaseBalance{
-    order:1!important;
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) 115px!important;
-    align-items:center!important;
-    padding:12px 14px!important;
-  }
-
-  #dashboard #monthOverview{
-    order:2!important;
-    display:block!important;
-    padding:8px 10px!important;
-  }
-
-  #dashboard #monthOverview .summary-period{
-    display:block!important;
-    font-size:10px!important;
-  }
-
-  #dashboard .dashboard-quick{
-    grid-template-columns:repeat(3,1fr)!important;
-    gap:7px!important;
-    margin-top:0!important;
-  }
-
-  #dashboard .dashboard-quick .quick{
-    min-height:80px!important;
-  }
-
-  /* Keep only the compact debt card from the lower section */
-  #dashboard #dashboardLower{
-    display:grid!important;
-    grid-template-columns:1fr!important;
-    gap:8px!important;
-  }
-
-  #dashboard #dashboardLower .budget-card,
-  #dashboard #dashboardLower .recent-card{
-    display:none!important;
-  }
-
-  #dashboard #dashboardLower .debt-card{
-    display:block!important;
-    min-height:auto!important;
-  }
-
-  #dashboard .debt-card .debt-panel{
-    display:grid!important;
-    grid-template-columns:125px 1fr!important;
-    gap:12px!important;
-    align-items:center!important;
-  }
-
-  #dashboard .debt-card .ring{
-    width:118px!important;
-  }
-
-  #dashboard .debt-link-btn{
-    display:none!important;
-  }
-}
-
-
 /* ===== v4.2 REAL HD STARTUP ASSETS ===== */
 .splash img{
   width:100%;
@@ -895,7 +763,7 @@ button{touch-action:manipulation}
   margin-bottom:10px;
   background:
     linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.08)),
-    url("./dashboard-hero-open-v45.jpg?v=450") center/cover no-repeat;
+    url("./dashboard-hero-open-v45.jpg?v=451") center/cover no-repeat;
   box-shadow:0 5px 22px rgba(0,0,0,.35),inset 0 0 0 1px rgba(237,171,63,.05)
 }
 .hd43-gear{
@@ -983,7 +851,7 @@ button{touch-action:manipulation}
     min-height:370px;
     background:
       linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
-      url("./dashboard-hero-cover-v45.jpg?v=450") center top/cover no-repeat
+      url("./dashboard-hero-cover-v451.jpg?v=451") center top/cover no-repeat
   }
   .hd43-grid{
     grid-template-columns:1fr 1fr;
@@ -1146,6 +1014,53 @@ button{touch-action:manipulation}
 .category-manage-row input,#newCategoryName{flex:1;background:#0d0f10;color:#eee;border:1px solid #625038;border-radius:7px;padding:11px}
 .category-manage-row button,#addCategoryBtn{border:1px solid #9b6825;background:#21170c;color:#e8b75e;border-radius:7px;padding:10px 12px}.field-row{margin-top:14px}
 
+
+/* ===== V4.5.1 FOLDED HERO POSITION FIX ===== */
+.hd451-cover-scroll{display:none}
+@media(max-width:699px), (max-aspect-ratio:.72){
+  .hd43-hero{
+    min-height:370px!important;
+    margin-bottom:0!important;
+    border-radius:14px 14px 0 0!important;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
+      url("./dashboard-hero-cover-v451.jpg?v=451") center top/cover no-repeat!important;
+  }
+  .hd451-cover-scroll{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+    width:calc(100% - 30px);
+    min-height:70px;
+    margin:0 auto 9px;
+    padding:10px 18px 12px;
+    position:relative;
+    border:2px solid #8b591d;
+    border-top:0;
+    border-radius:0 0 12px 12px;
+    color:#251607;
+    background:
+      radial-gradient(ellipse at center,rgba(255,246,202,.38),transparent 65%),
+      repeating-linear-gradient(0deg,#d6b776 0 3px,#c9a565 4px,#dfc281 7px);
+    box-shadow:inset 0 0 14px rgba(77,42,12,.24),0 5px 14px rgba(0,0,0,.28);
+    font:700 clamp(15px,4.3vw,20px)/1.15 Georgia,"Times New Roman",serif;
+    text-align:center;
+    text-shadow:0 1px rgba(255,255,255,.35);
+  }
+  .hd451-cover-scroll:before,.hd451-cover-scroll:after{
+    content:"";position:absolute;top:8px;bottom:8px;width:11px;border-radius:50%;
+    background:linear-gradient(90deg,#72501f,#c28d3b,#72501f);
+    box-shadow:0 0 0 1px #4b2c0d;
+  }
+  .hd451-cover-scroll:before{left:-7px}
+  .hd451-cover-scroll:after{right:-7px}
+}
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  .hd451-cover-scroll{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -1153,15 +1068,15 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=450">
-    <img src="./intro-cover-hd-v42.jpg?v=450" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=451">
+    <img src="./intro-cover-hd-v42.jpg?v=451" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=450">
-    <img src="./loading-cover-hd-v42.jpg?v=450" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=451">
+    <img src="./loading-cover-hd-v42.jpg?v=451" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
     
@@ -1177,6 +1092,10 @@ button{touch-action:manipulation}
     <header class="hd43-hero">
       <button class="hd43-gear" type="button" data-go="more" aria-label="Settings">⚙</button>
     </header>
+    <div class="hd451-cover-scroll" aria-label="Pirate Dog motto">
+      <span>Chart Your Course.</span>
+      <span>Control Your Treasure.</span>
+    </div>
 
     <div class="hd43-grid">
 
@@ -1190,7 +1109,7 @@ button{touch-action:manipulation}
             <strong id="paymentView">$2,250.00</strong>
           </div>
         </div>
-        <img src="./treasure-chest-v31.jpg?v=450" class="hd43-chest" alt="">
+        <img src="./treasure-chest-v31.jpg?v=451" class="hd43-chest" alt="">
       </section>
 
       <section id="monthOverview" class="hd43-card hd43-month">
@@ -1378,7 +1297,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=450" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=451" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1478,7 +1397,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=450" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=451" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1639,7 +1558,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=450").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=451").catch(function(){});
   }
 }
 init().catch(function(err){
