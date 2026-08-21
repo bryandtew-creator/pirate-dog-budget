@@ -166,13 +166,32 @@ input[type="date"]{padding:0}
     radial-gradient(circle at 50% 20%,rgba(30,128,170,.18),transparent 33rem),
     linear-gradient(180deg,#151006,#080604 72%);
 }
-.sail-shell{width:min(94vw,820px);text-align:center;padding:18px}
+.sail-shell{
+  width:100%;
+  max-width:1100px;
+  text-align:center;
+  padding:12px 14px 22px;
+}
 .sail-art-frame{
-  position:relative;overflow:hidden;border-radius:24px;border:2px solid #8b6226;
-  background:#1a1208;box-shadow:0 22px 55px rgba(0,0,0,.48);
+  position:relative;
+  overflow:hidden;
+  width:min(96vw,980px);
+  margin:0 auto;
+  aspect-ratio:16/10;
+  border-radius:22px;
+  border:2px solid #8b6226;
+  background:#031421;
+  box-shadow:0 22px 55px rgba(0,0,0,.48);
+  display:grid;
+  place-items:center;
 }
 .sail-art{
-  display:block;width:100%;height:auto;aspect-ratio:1100/820;object-fit:cover;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  background:#031421;
   animation:sailBob 1s steps(2,end) infinite;
 }
 .sail-copy{
@@ -190,18 +209,11 @@ input[type="date"]{padding:0}
   animation:sailLoad 2.25s steps(20,end) forwards;
 }
 .sail-percent{font-family:Georgia,serif;color:#f7e8c8;font-size:20px;margin-top:10px}
-#tuckerFlight{
-  position:fixed;z-index:170;pointer-events:none;opacity:0;
-  object-fit:contain;image-rendering:pixelated;will-change:left,top,width,height,opacity,transform;
-  filter:drop-shadow(0 10px 10px rgba(0,0,0,.34));
-}
-#tuckerFlight.flying{opacity:1}
 @keyframes sailBob{50%{transform:translateY(-4px)}}
 @keyframes sailLoad{to{width:100%}}
 @media(prefers-reduced-motion:reduce){
   .sail-art{animation:none}
   .sail-fill{animation:none;width:100%}
-  #tuckerFlight{display:none!important}
 }
 @media(prefers-reduced-motion:reduce){.pixel-dog{animation:none}.loader>div{animation:none;width:100%}}
 /* CLOSED / phone cover display */
@@ -419,6 +431,35 @@ input,select,textarea,.date-shell{
     linear-gradient(180deg,#031421,#020b12 76%);
 }
 
+
+/* v1.6 — uncropped cinematic loading scene */
+@media(max-width:699px){
+  .sail-shell{padding:8px 8px 18px}
+  .sail-art-frame{
+    width:calc(100vw - 16px);
+    max-width:none;
+    aspect-ratio:16/10;
+    border-radius:16px;
+  }
+  .sail-art{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+  .sail-copy{
+    font-size:clamp(25px,7vw,34px);
+    margin:12px 0 8px;
+  }
+  .sail-track{width:min(88vw,540px);height:16px}
+  .sail-percent{margin-top:7px}
+}
+@media(min-width:700px){
+  .sail-art-frame{
+    width:min(90vw,1000px);
+    aspect-ratio:16/10;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -434,7 +475,7 @@ input,select,textarea,.date-shell{
 <div id="settingSailV14" class="startup-stage sail-approved stage-hidden">
   <div class="sail-shell">
     <div class="sail-art-frame">
-      <img id="sailScene" class="sail-art" src="./setting-sail-ocean-v15.jpg"
+      <img id="sailScene" class="sail-art" src="./setting-sail-wide-v16.jpg"
            alt="Pixel-art Tucker the Pirate Dog sitting on a dock beside a treasure chest with a pirate ship behind him.">
     </div>
     <div class="sail-copy">Setting sail…</div>
@@ -442,9 +483,6 @@ input,select,textarea,.date-shell{
     <div id="sailPercent" class="sail-percent">0%</div>
   </div>
 </div>
-
-<img id="tuckerFlight" src="./tucker-transition-v15.png" alt="" aria-hidden="true">
-
 <section id="dashboard" class="screen active">
   <div class="wrap">
     <header class="topbar">
@@ -757,65 +795,12 @@ async function init(){
  if("serviceWorker"in navigator)navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
  render();
  
- // Pirate Dog Budget v1.5 Ocean Dark startup:
- // ocean intro -> seated Tucker/treasure "Setting sail" -> Tucker flies into dashboard.
+ // Pirate Dog Budget v1.6 Ocean Dark startup:
+ // Intro -> full-width Setting Sail scene -> clean fade into dashboard.
  const introV14=$("introV14");
  const settingSailV14=$("settingSailV14");
  const sailPercent=$("sailPercent");
- const tuckerFlight=$("tuckerFlight");
 
- function flyTuckerHome(){
-   const scene=$("sailScene");
-   const destination=$("dashboardLogo");
-   if(!scene||!destination){
-     settingSailV14.classList.add("stage-hidden");
-     return;
-   }
-
-   // Use a smaller starting box centered over Tucker's position in the approved loading scene.
-   const r=scene.getBoundingClientRect();
-   const to=destination.getBoundingClientRect();
-   const startW=Math.min(r.width*.34,250);
-   const startH=startW;
-   const startLeft=r.left+r.width*.32-startW*.5;
-   const startTop=r.top+r.height*.48-startH*.5;
-
-   tuckerFlight.style.left=startLeft+"px";
-   tuckerFlight.style.top=startTop+"px";
-   tuckerFlight.style.width=startW+"px";
-   tuckerFlight.style.height=startH+"px";
-   tuckerFlight.style.borderRadius="22px";
-   tuckerFlight.classList.add("flying");
-
-   // Reveal the dashboard beneath a translucent sailing screen.
-   settingSailV14.style.background="rgba(12,8,4,.76)";
-
-   requestAnimationFrame(()=>{
-     requestAnimationFrame(()=>{
-       tuckerFlight.style.transition=
-         "left .9s cubic-bezier(.18,.78,.2,1),"+
-         "top .9s cubic-bezier(.18,.78,.2,1),"+
-         "width .9s cubic-bezier(.18,.78,.2,1),"+
-         "height .9s cubic-bezier(.18,.78,.2,1),"+
-         "transform .9s ease,opacity .22s ease .76s";
-       tuckerFlight.style.left=to.left+"px";
-       tuckerFlight.style.top=to.top+"px";
-       tuckerFlight.style.width=to.width+"px";
-       tuckerFlight.style.height=to.height+"px";
-       tuckerFlight.style.transform="rotate(5deg)";
-       settingSailV14.classList.add("stage-hidden");
-     });
-   });
-
-   setTimeout(()=>{tuckerFlight.style.opacity="0";},860);
-   setTimeout(()=>{
-     tuckerFlight.classList.remove("flying");
-     tuckerFlight.removeAttribute("style");
-     settingSailV14.style.background="";
-   },1150);
- }
-
- // Intro remains long enough to actually see the approved screen.
  setTimeout(()=>{
    introV14.classList.add("stage-hidden");
    settingSailV14.classList.remove("stage-hidden");
@@ -828,13 +813,10 @@ async function init(){
    },90);
  },2200);
 
- // Loading scene is visible for ~2.6 seconds, then Tucker transitions into the dashboard.
+ // No Tucker shrinking/flying animation in v1.6.
+ // The loading screen simply fades away once loading reaches 100%.
  setTimeout(()=>{
-   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-     settingSailV14.classList.add("stage-hidden");
-   }else{
-     flyTuckerHome();
-   }
+   settingSailV14.classList.add("stage-hidden");
  },4900);
 
 }

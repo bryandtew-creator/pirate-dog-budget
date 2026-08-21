@@ -1,4 +1,4 @@
-const CACHE = "pirate-dog-budget-v1.5.0-ocean";
+const CACHE = "pirate-dog-budget-v1.6.0-ocean";
 const ASSETS = [
   "./",
   "./index.html",
@@ -7,9 +7,8 @@ const ASSETS = [
   "./icon-192.png",
   "./icon-512.png",
   "./intro-ocean-v15.jpg",
-  "./setting-sail-ocean-v15.jpg",
+  "./setting-sail-wide-v16.jpg",
   "./ocean-waves-v15.png",
-  "./tucker-transition-v15.png",
   "./tucker-pixel.png",
   "./tucker-sprite-sheet.png"
 ];
@@ -30,17 +29,15 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
-
-  // Network-first so GitHub Pages updates appear quickly, cache as offline fallback.
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        const copy = response.clone();
-        caches.open(CACHE).then(cache => cache.put(event.request, copy)).catch(()=>{});
+        const copy=response.clone();
+        caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{});
         return response;
       })
       .catch(() =>
-        caches.match(event.request).then(cached => cached || caches.match("./index.html"))
+        caches.match(event.request).then(cached=>cached||caches.match("./index.html"))
       )
   );
 });
