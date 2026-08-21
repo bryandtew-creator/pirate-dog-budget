@@ -1,32 +1,22 @@
-PIRATE DOG BUDGET v4.2 — REAL HD BUILD
+PIRATE DOG BUDGET v4.3 — REAL HD DASHBOARD
 
-IMPORTANT CORRECTION
-v4.1 still referenced the OLD intro/loading artwork. v4.2 does not.
+This corrects the core problem in v4.2:
+v4.2 upgraded intro/loading, but the dashboard was still the old v3/v4 live UI.
 
-NEW HD STARTUP FILES
-intro-cover-hd-v42.jpg   1080 x 2520
-intro-open-hd-v42.jpg    2504 x 2256
-loading-cover-hd-v42.jpg 1080 x 2520
-loading-open-hd-v42.jpg  2504 x 2256
+v4.3 DASHBOARD
+- Uses dashboard-hero-cover-hd-v43.jpg on folded cover.
+- Uses dashboard-hero-open-hd-v43.jpg on open inner screen.
+- Both are derived from the latest corrected HD Tucker artwork.
+- Tucker's eye patch remains on viewer's LEFT.
+- Clean ship flags.
+- No Chart Your Course / Control Your Treasure scroll on folded dashboard.
+- Dynamic cards now use dashboard-wood-hd-v43.jpg sampled from the HD concept.
+- Gold/brass borders, HD wood texture, upgraded typography and gauge styling.
+- Folded screen: balance, month overview, quick actions, debt gauge, recent transactions.
+- Full budget-progress list is hidden on folded screen to reduce clutter.
+- Open screen: balance, month overview, quick categories, budget progress, debt gauge and recent transactions.
 
-OLD STARTUP FILES ARE REMOVED FROM THIS ZIP:
-intro-cover-final.jpg
-intro-open-final.jpg
-loading-cover-art-v32.jpg
-loading-open-art-v32.jpg
+STARTUP
+The working HD intro/loading and real animated 0–100% loading bar from v4.2 are retained.
 
-LOADING
-The static baked-in progress bar was cropped out of the HD source.
-The app uses the real HTML/CSS/JS 0–100% animated loader from v3.2.
-The HD artwork supplies the "Setting sail..." sign; HTML does not duplicate it.
-
-DASHBOARD
-Keeps the corrected folded HD hero from v4.1:
-- Tucker patch on viewer's LEFT
-- no Chart Your Course / Control Your Treasure scroll on folded dashboard
-- clean ship flags
-- streamlined folded dashboard
-- information-rich open dashboard
-
-UPLOAD EVERY FILE IN THIS ZIP TO THE GITHUB REPOSITORY ROOT.
-Delete the four old startup files listed above if they are still in GitHub.
+Upload EVERY file in this ZIP to the GitHub repository root and replace matching files.

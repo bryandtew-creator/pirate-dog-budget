@@ -8,9 +8,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pirate Dog Budget</title>
-<link rel="manifest" href="./manifest.webmanifest?v=420">
-<link rel="icon" href="./icon-192.png?v=420">
-<link rel="apple-touch-icon" href="./icon-180.png?v=420">
+<link rel="manifest" href="./manifest.webmanifest?v=430">
+<link rel="icon" href="./icon-192.png?v=430">
+<link rel="apple-touch-icon" href="./icon-180.png?v=430">
 <style>
 :root{
   --bg:#020b12;
@@ -33,7 +33,7 @@ html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-f
 body{
   background:
     linear-gradient(rgba(1,7,12,.50),rgba(1,7,12,.82)),
-    url("./ocean-waves-v15.png?v=420") left bottom / 256px 96px repeat-x,
+    url("./ocean-waves-v15.png?v=430") left bottom / 256px 96px repeat-x,
     #020b12;
 }
 button,input,select,textarea{font:inherit}
@@ -287,7 +287,7 @@ button{touch-action:manipulation}
   height:28px;
   margin:0 0 8px;
   background:
-    url("./ocean-waves-v15.png?v=420") left center/256px 96px repeat-x;
+    url("./ocean-waves-v15.png?v=430") left center/256px 96px repeat-x;
   background-position:left 52%;
   opacity:.95;
 }
@@ -742,7 +742,7 @@ button{touch-action:manipulation}
     border-radius:12px!important;
     background:
       linear-gradient(rgba(0,0,0,.02),rgba(0,0,0,.12)),
-      url("./folded-hero-v41.jpg?v=420") center top/cover no-repeat!important;
+      url("./folded-hero-v41.jpg?v=430") center top/cover no-repeat!important;
   }
 
   /* Hide the old header contents over the cinematic art */
@@ -875,6 +875,167 @@ button{touch-action:manipulation}
   }
 }
 
+
+/* =========================================================
+   v4.3 REAL HD DASHBOARD
+   The dashboard now uses HD concept-derived assets instead
+   of the old v3/v4 flat navy cards.
+   ========================================================= */
+#dashboard{
+  min-height:100dvh;
+  background:#02090d!important;
+}
+.hd43-dashboard{max-width:1500px;margin:0 auto}
+.hd43-hero{
+  position:relative;
+  min-height:300px;
+  border:1px solid #8b5b17;
+  border-radius:14px;
+  overflow:hidden;
+  margin-bottom:10px;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.08)),
+    url("./dashboard-hero-open-hd-v43.jpg?v=430") center/cover no-repeat;
+  box-shadow:0 5px 22px rgba(0,0,0,.35),inset 0 0 0 1px rgba(237,171,63,.05)
+}
+.hd43-gear{
+  position:absolute;left:14px;top:14px;z-index:3;
+  width:46px;height:46px;border-radius:50%;
+  border:1px solid #a87422;background:rgba(8,8,6,.82);
+  color:#dfaa4b;font-size:23px
+}
+.hd43-grid{display:grid;gap:10px}
+.hd43-card{
+  border:1.5px solid #8b5a17;
+  border-radius:10px;
+  color:#efd5a1;
+  overflow:hidden;
+  background:
+    linear-gradient(rgba(20,13,8,.66),rgba(7,6,5,.88)),
+    url("./dashboard-wood-hd-v43.jpg?v=430") center/cover no-repeat;
+  box-shadow:inset 0 0 0 1px rgba(236,166,62,.05),0 4px 14px rgba(0,0,0,.25)
+}
+.hd43-title{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px 5px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:15px;font-weight:800;color:#e7b65b;
+  text-shadow:0 1px 0 #2a1606
+}
+.hd43-title-center{justify-content:center;text-align:center}
+.hd43-link{border:0;background:none;color:#64b8e3;font-size:11px}
+.hd43-balance{
+  display:grid;grid-template-columns:minmax(0,1fr) 185px;
+  align-items:center;padding:9px 14px
+}
+.hd43-balance-number{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:42px;color:#e1a450;margin:5px 0
+}
+.hd43-updated{font-size:11px;color:#cfad72}
+.hd43-payment{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:12px}
+.hd43-payment span{color:#ddb45e}
+.hd43-chest{width:100%;max-height:145px;object-fit:contain;mix-blend-mode:screen}
+.hd43-month-label{text-align:center;color:#d2b98b;font-size:11px}
+.hd43-metrics{display:grid;grid-template-columns:repeat(3,1fr);padding:5px 10px 12px}
+.hd43-metrics>div{text-align:center;padding:8px;border-right:1px solid #50371d}
+.hd43-metrics>div:last-child{border-right:0}
+.hd43-metrics span{display:block;font-size:10px;color:#dfb45e}
+.hd43-metrics strong{display:block;font-size:21px;margin-top:4px}
+.hd43-blue{color:#45b4e7}
+.hd43-quick-grid{padding:5px 9px 11px;margin:0!important;gap:8px!important}
+.hd43-quick-grid .quick.quick-art{
+  border:1px solid #76501a!important;border-radius:7px!important;
+  background:#100b07!important;overflow:hidden!important;min-height:80px
+}
+.hd43-quick-grid .quick.quick-art img{width:100%;height:100%;object-fit:cover!important}
+.hd43-progress{padding:5px 14px 14px}
+.hd43-progress .prow{grid-template-columns:minmax(110px,1.2fr) 1.55fr 42px;gap:8px}
+.hd43-progress .pname{font-size:12px;color:#ecd7aa}
+.hd43-progress .track{height:7px;background:#17120d;border:1px solid #55391b;border-radius:8px;overflow:hidden}
+.hd43-progress .pct{font-size:12px}
+.hd43-debt-inner{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;
+  align-items:center;padding:6px 14px 14px
+}
+.hd43-ring{
+  width:180px!important;
+  background:conic-gradient(#69a44b 0 51%,#6b3d19 51% 72%,#25160b 72% 100%)!important;
+  box-shadow:0 0 0 8px #533615 inset,0 0 0 2px #ad7523,0 4px 18px rgba(0,0,0,.38)
+}
+.hd43-ring::before{background:#090806!important}
+.hd43-ring .ring-center strong{font-family:Georgia,serif;color:#e7b35a!important;font-size:42px}
+.hd43-debt-stats{display:grid;gap:12px}
+.hd43-debt-stats span{display:block;color:#dbb875;font-size:11px}
+.hd43-debt-stats strong{display:block;font-size:19px;margin-top:2px}
+.hd43-tx-list{padding:0 14px 10px}
+.hd43-tx-list .tx{
+  padding:10px 0;grid-template-columns:36px minmax(0,1fr) auto;
+  border-bottom:1px solid #49321b
+}
+.hd43-tx-list .tx-name{font-family:Georgia,serif;font-size:14px;color:#f0dbb1}
+.hd43-tx-list .tx-meta{font-size:10px;color:#c4aa7b}
+.hd43-tx-list .tx-amt{font-size:13px;color:#ff4b2f}
+
+/* Folded cover — streamlined but still useful */
+@media(max-width:699px), (max-aspect-ratio:.72){
+  .hd43-hero{
+    min-height:370px;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.01),rgba(0,0,0,.06)),
+      url("./dashboard-hero-cover-hd-v43.jpg?v=430") center top/cover no-repeat
+  }
+  .hd43-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "balance balance"
+      "month month"
+      "quick debt"
+      "recent recent";
+    gap:8px
+  }
+  .hd43-balance{grid-area:balance;grid-template-columns:minmax(0,1fr) 110px;padding:10px 12px}
+  .hd43-balance-number{font-size:35px}
+  .hd43-chest{max-height:100px}
+  .hd43-payment{display:none}
+  .hd43-month{grid-area:month}
+  .hd43-month-label{display:none}
+  .hd43-metrics strong{font-size:16px}
+  .hd43-metrics span{font-size:9px}
+  .hd43-quick{grid-area:quick}
+  .hd43-quick-grid{grid-template-columns:repeat(3,1fr)!important;gap:5px!important;padding:5px!important}
+  .hd43-quick-grid .quick.quick-art{min-height:64px!important}
+  .hd43-budget{display:none}
+  .hd43-debt{grid-area:debt}
+  .hd43-debt-inner{grid-template-columns:1fr;padding:3px 7px 8px;gap:4px}
+  .hd43-ring{width:126px!important;margin:auto}
+  .hd43-ring .ring-center strong{font-size:29px!important}
+  .hd43-debt-stats{grid-template-columns:1fr;gap:5px}
+  .hd43-debt-stats span{font-size:9px}
+  .hd43-debt-stats strong{font-size:13px}
+  .hd43-recent{grid-area:recent}
+  .hd43-tx-list .tx{padding:8px 0}
+}
+
+/* Open inner — full information-rich dashboard */
+@media(min-width:700px) and (min-aspect-ratio:.73){
+  .hd43-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "balance month"
+      "quick quick"
+      "budget debt"
+      "recent recent";
+  }
+  .hd43-balance{grid-area:balance}
+  .hd43-month{grid-area:month}
+  .hd43-quick{grid-area:quick}
+  .hd43-quick-grid{grid-template-columns:repeat(9,minmax(0,1fr))!important}
+  .hd43-budget{grid-area:budget}
+  .hd43-debt{grid-area:debt}
+  .hd43-recent{grid-area:recent}
+}
+
 </style>
 </head>
 <body>
@@ -882,15 +1043,15 @@ button{touch-action:manipulation}
 <!-- These two screens are pure visual layers. Nothing else controls their timing. -->
 <div id="intro" class="splash">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=420">
-    <img src="./intro-cover-hd-v42.jpg?v=420" alt="Pirate Dog Budget intro">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./intro-open-hd-v42.jpg?v=430">
+    <img src="./intro-cover-hd-v42.jpg?v=430" alt="Pirate Dog Budget intro">
   </picture>
 </div>
 
 <div id="loading" class="splash off">
   <picture>
-    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=420">
-    <img src="./loading-cover-hd-v42.jpg?v=420" alt="Setting sail loading screen">
+    <source media="(min-width:700px) and (min-aspect-ratio:.73)" srcset="./loading-open-hd-v42.jpg?v=430">
+    <img src="./loading-cover-hd-v42.jpg?v=430" alt="Setting sail loading screen">
   </picture>
   <div class="live-loader" aria-live="polite">
     
@@ -901,73 +1062,66 @@ button{touch-action:manipulation}
 
 <main id="app">
   <section id="dashboard" class="view active">
-    <div class="wrap">
-      <header class="topbar dashboard-topbar">
-        <button class="icon-btn menu-btn" type="button" aria-label="Menu">☰</button>
-        <img class="logo dashboard-logo" src="./icon-192.png?v=420" alt="Pirate Dog">
-        <h1>Ahoy, Captain!</h1>
-        <div class="grow"></div>
-        <button class="icon-btn notify-btn" type="button" aria-label="Notifications">🔔<span class="notify-dot"></span></button>
-        <button class="icon-btn" type="button" data-go="more" aria-label="Settings">⚙</button>
-      </header>
+  <div class="wrap hd43-dashboard">
 
-      <div class="pixel-wave-divider" aria-hidden="true"></div>
+    <header class="hd43-hero">
+      <button class="hd43-gear" type="button" data-go="more" aria-label="Settings">⚙</button>
+    </header>
 
-      <div class="dashboard-shell">
-        <div class="summary-grid">
-          <div id="monthOverview" class="card summary month-overview-card">
-            <div class="summary-title">MONTH OVERVIEW</div>
-            <div id="monthText" class="summary-period">This month</div>
-            <div class="metrics">
-              <div class="metric"><span>Income</span><strong id="incomeView" class="good">$5,800.00</strong></div>
-              <div class="metric"><span>Spent</span><strong id="spentView" class="bad">$0.00</strong></div>
-              <div class="metric"><span>Left to Spend</span><strong id="leftView" class="good">$3,550.00</strong></div>
-            </div>
-          </div>
+    <div class="hd43-grid">
 
-          <div id="chaseBalance" class="card summary chase-card">
-            <div class="chase-copy">
-              <div class="summary-title">CHASE BALANCE</div>
-              <div id="balanceView" class="summary-big">$13,938.07</div>
-              <div class="chase-rule"></div>
-              <div class="payment-line">
-                <span>Monthly Payment</span>
-                <b id="paymentView">$2,250.00</b>
-              </div>
-              <button class="payment-history-btn" type="button">PAYMENT HISTORY</button>
-            </div>
-            <img class="treasure-chest" src="./treasure-chest-v31.jpg?v=420" alt="">
+      <section id="chaseBalance" class="hd43-card hd43-balance">
+        <div class="hd43-balance-copy">
+          <div class="hd43-title">CHASE BALANCE</div>
+          <div id="balanceView" class="hd43-balance-number">$13,938.07</div>
+          <div class="hd43-updated">Updated just now&nbsp; ↻</div>
+          <div class="hd43-payment">
+            <span>Monthly Payment</span>
+            <strong id="paymentView">$2,250.00</strong>
           </div>
         </div>
+        <img src="./treasure-chest-v31.jpg?v=430" class="hd43-chest" alt="">
+      </section>
 
-        <div id="dashboardQuick" class="quick-grid dashboard-quick"></div>
+      <section id="monthOverview" class="hd43-card hd43-month">
+        <div class="hd43-title hd43-title-center">MONTH OVERVIEW</div>
+        <div id="monthText" class="hd43-month-label">This month</div>
+        <div class="hd43-metrics">
+          <div><span>INCOME</span><strong id="incomeView" class="good">$5,800.00</strong></div>
+          <div><span>SPENT</span><strong id="spentView" class="bad">$0.00</strong></div>
+          <div><span>LEFT TO SPEND</span><strong id="leftView" class="hd43-blue">$3,550.00</strong></div>
+        </div>
+      </section>
 
-        <div id="dashboardLower" class="lower-grid">
-          <div class="card panel budget-card">
-            <div class="panel-title"><span>BUDGET PROGRESS</span><button class="view-link" type="button" data-go="budget">View All</button></div>
-            <div id="budgetProgress" class="progress-list"></div>
-          </div>
+      <section class="hd43-card hd43-quick">
+        <div class="hd43-title hd43-title-center">QUICK ACTIONS</div>
+        <div id="dashboardQuick" class="quick-grid hd43-quick-grid"></div>
+      </section>
 
-          <div class="card panel debt-card">
-            <div class="panel-title">DEBT PAYOFF PROGRESS</div>
-            <div class="debt-panel">
-              <div class="ring"><div class="ring-center"><strong id="debtPct">0%</strong><span>Paid Off</span></div></div>
-              <div class="debt-meta-row">
-                <span>Paid to Date<br><b id="paidView" class="good">$0.00</b></span>
-                <span>Est. Payoff Date<br><b id="payoffView">—</b></span>
-              </div>
-              <button class="debt-link-btn" type="button" data-go="budget">VIEW DEBT TRACKER</button>
-            </div>
-          </div>
+      <section class="hd43-card hd43-budget">
+        <div class="hd43-title"><span>BUDGET PROGRESS</span><button class="hd43-link" type="button" data-go="budget">View All</button></div>
+        <div id="budgetProgress" class="progress-list hd43-progress"></div>
+      </section>
 
-          <div class="card panel recent-card">
-            <div class="panel-title"><span>RECENT TRANSACTIONS</span><button class="view-link" type="button" data-go="transactions">View All</button></div>
-            <div id="recentView" class="tx-list"></div>
+      <section class="hd43-card hd43-debt">
+        <div class="hd43-title hd43-title-center">DEBT PAYOFF</div>
+        <div class="hd43-debt-inner">
+          <div class="ring hd43-ring"><div class="ring-center"><strong id="debtPct">0%</strong><span>Paid Off</span></div></div>
+          <div class="hd43-debt-stats">
+            <div><span>Paid to Date</span><strong id="paidView" class="good">$0.00</strong></div>
+            <div><span>Est. Payoff</span><strong id="payoffView">—</strong></div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="hd43-card hd43-recent">
+        <div class="hd43-title"><span>RECENT TRANSACTIONS</span><button class="hd43-link" type="button" data-go="transactions">View All</button></div>
+        <div id="recentView" class="tx-list hd43-tx-list"></div>
+      </section>
+
     </div>
-  </section>
+  </div>
+</section>
 
 <section id="transactions" class="view">
     <div class="wrap">
@@ -1114,7 +1268,7 @@ function assetKey(name){
 function iconAsset(name){
   var k=assetKey(name);
   var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
-  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=420" : "";
+  return exact.indexOf(k)>-1 ? "./cat-"+k+"-icon-v32.png?v=430" : "";
 }
 function iconFallback(name){
   if(name.indexOf("Medical")>-1)return "🩺";
@@ -1214,7 +1368,7 @@ function quickMarkup(limit){
     var k=c[2];
     var exact=["groceries","restaurants","gas","amazon","entertainment","shopping","home","other","edit"];
     if(exact.indexOf(k)>-1){
-      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=420" alt=""></button>';
+      return '<button class="quick quick-art" type="button" data-cat="'+esc(c[0])+'" aria-label="'+esc(c[0])+'"><img src="./cat-'+k+'-tile-v32.png?v=430" alt=""></button>';
     }
     return '<button class="quick" type="button" data-cat="'+esc(c[0])+'"><span class="ico">'+iconFallback(c[0])+'</span><span class="lbl">'+esc(c[0])+'</span></button>';
   }).join("");
@@ -1375,7 +1529,7 @@ async function init(){
   if(!storage)toast("Local storage unavailable; app opened in view-only mode");
 
   if("serviceWorker" in navigator){
-    navigator.serviceWorker.register("./service-worker.js?v=420").catch(function(){});
+    navigator.serviceWorker.register("./service-worker.js?v=430").catch(function(){});
   }
 }
 init().catch(function(err){
