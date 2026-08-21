@@ -1,55 +1,58 @@
-PIRATE DOG BUDGET v1.4 — CORRECTED STARTUP BUILD
+PIRATE DOG BUDGET v1.5 — OCEAN DARK
 
-THIS VERSION FIXES THE STARTUP SCREENS DIRECTLY.
+THIS IS THE BLUE/BLACK VERSION BASED ON THE APPROVED CONCEPT.
 
-WHAT YOU SHOULD SEE
-1. INTRO:
-   The exact approved-style Pirate Dog Budget poster:
-   - Tucker portrait
-   - PIRATE DOG BUDGET
-   - "Chart your course. Control your treasure."
+VISUAL CHANGES
+- Returns the main interface to a black / deep-navy base.
+- Adds an 8-bit ocean-wave background throughout the app.
+- Keeps warm gold borders and parchment where they improve readability.
+- Uses brighter blue, cyan, green, orange, purple, red, and pink interactive controls.
+- Keeps the colorful category buttons from the approved concept.
+- Keeps the Pirate Dog Budget intro screen.
+- Keeps the "Setting sail..." Tucker + treasure chest loading screen.
+- Keeps the Tucker-to-dashboard transition.
+- Keeps Galaxy Z Fold responsive layouts.
 
-2. LOADING:
-   The approved scene with pixel Tucker SITTING beside the treasure chest,
-   ocean and pirate ship behind him.
-   Under the scene:
-   - "Setting sail..."
-   - animated red/orange/gold loading bar
-   - live 0% to 100% number
+NEW v1.5 ASSET FILENAMES
+- intro-ocean-v15.jpg
+- setting-sail-ocean-v15.jpg
+- ocean-waves-v15.png
+- tucker-transition-v15.png
 
-3. TRANSITION:
-   After loading reaches 100%, Tucker flies/shrinks toward the Pirate Dog
-   icon in the dashboard header and the dashboard is revealed.
+UPLOAD THESE FILES TO THE ROOT OF YOUR EXISTING GITHUB REPOSITORY
+1. index.html
+2. manifest.webmanifest
+3. service-worker.js
+4. icon-180.png
+5. icon-192.png
+6. icon-512.png
+7. intro-ocean-v15.jpg
+8. setting-sail-ocean-v15.jpg
+9. ocean-waves-v15.png
+10. tucker-transition-v15.png
+11. tucker-pixel.png
+12. tucker-sprite-sheet.png
+13. README.txt
 
-4. DASHBOARD:
-   Keeps the brighter v1.3 brown/gold/parchment/colorful interface.
-
-IMPORTANT:
-v1.4 uses NEW asset filenames:
+YOU MAY DELETE THESE OLD v1.4-ONLY ASSETS AFTER v1.5 IS WORKING
 - intro-approved-v14.jpg
 - setting-sail-scene-v14.jpg
 - tucker-transition-v14.png
 
-This is intentional. It prevents an older browser/PWA cache from silently
-reusing v1.1/v1.2 splash-screen artwork under an old filename.
-
-FILES TO UPLOAD TO THE ROOT OF YOUR EXISTING GITHUB REPOSITORY
+DO NOT DELETE
 - index.html
 - manifest.webmanifest
 - service-worker.js
-- icon-180.png
-- icon-192.png
-- icon-512.png
-- intro-approved-v14.jpg
-- setting-sail-scene-v14.jpg
-- tucker-transition-v14.png
+- the icon files
 - tucker-pixel.png
 - tucker-sprite-sheet.png
-- README.txt
 
-AFTER COMMITTING
-1. Wait for GitHub Pages to redeploy.
-2. Open the Pages URL in a NEW Chrome Incognito window.
-3. You should see the v1.4 intro immediately.
-4. Only after confirming it there, test/reinstall the home-screen PWA.
-5. If the installed PWA is stale, uninstall it and reinstall from the Pages URL.
+AFTER UPLOADING
+1. Commit the changes directly to main.
+2. Wait for GitHub Pages to redeploy.
+3. Open the Pages URL in a new Chrome Incognito window.
+4. Confirm intro -> Setting sail -> Tucker transition -> blue Ocean Dark dashboard.
+5. If the installed PWA still shows the old version, uninstall it and reinstall from the updated Pages URL.
+
+PRIVACY
+Transactions remain stored locally in IndexedDB. This build does not upload your transaction history to GitHub.
